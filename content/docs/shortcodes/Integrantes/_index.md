@@ -1,0 +1,7 @@
+---
+bookCollapseSection: true
+---
+
+# Integrantes
+
+{{<section>}}
