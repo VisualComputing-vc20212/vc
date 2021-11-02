@@ -1,44 +1,105 @@
 # Diego Bayona
-### Quienes somos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Que nos gusta de la carrera 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Hobby
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Quien soy
+
+Soy estudiante de noveno semestre de Ingenieria de Sistemas y Computacion de la Universidad Naciolnal de Colombia, tengo 21 años, he trabajado como ayudante de desarrollo para proyectos en la universidad y como tutor de programacion, mis lenguajes preferidos son python, javascript, C++ y en cuanto a desarrollo me gusta mas la parte enfocada al frontend en frameworks como React.js y Vue.js
+
+### Que me gusta de la carrera 
+
+De la carrera me gusta el enfoque en proyectos practicos que nos fuerce a demostrar nuestras capacidades y nuestro trabajo en equipo, me gusta la linea de desarrollo y arquitectura de software, cibreseguridad entre otras...
+
+### Hobbys
+
+Jugar videojuegos (principalmente competitivos), ver series, aprender idiomas, aprender cosas nuevas
 ### Experiencia con graficos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+
+No poseo experencia mas alla de el desarrollo de interfaces graficas para aplicaciones web
+
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
-  let angle = 0;
-  let speed = 0.06;
+ int n = 1000; // number of dots 
 
-  function setup() {
-    createCanvas(600, 600);
-  }
+float[] m = new float[n]; // make a new list of floating points 
+float[] x = new float[n];
+float[] y = new float[n];
+float[] vx = new float[n];
+float[] vy = new float[n];
+float[] redchannel = new float[n]; 
+float[] bluechannel = new float[n];
+float[] greenchannel = new float[n];
+float[] shape = new float[n];
 
-  function draw() {
-    background(255, 255, 255);
-    rotateSquare();
-    if (!mouseIsPressed) {
-      strokeWeight(0);
-      stroke(0);
-      fill(255, 140, 0);
-      rect(0, 0, 281, 281);
-      rect(318, 0, 281, 281);
-      rect(0, 318, 281, 281);
-      rect(318, 318, 281, 281);
-    }
-  }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-  function rotateSquare() {
-    push();
-    angle += speed;
-    strokeWeight(0);
-    stroke(0);
-    fill(0, 0, 255);
-    translate(width / 2, height / 2);
-    rotate(angle);
-    rect(-187.5, -187.5, 375, 375);
-    pop();
-  }
+void setup() {
+	fullScreen();
+	fill(0,10);
+	reset();// running the reset when you click. 10000 random values being plugged in 
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+void draw() {
+	noStroke();
+	fill(0,30);
+	rect(0, 0, width, height); //  black background 
+
+	for (int i = 0; i < n; i++) { // runs the loop 10,000 times
+		float dx = mouseX - x[i]; // distance from the mouse 
+		float dy = mouseY - y[i];
+
+		float d = sqrt(dx*dx + dy*dy); // calculating the distance between the points and the mouse 
+		if (d < 1) d = 1; 
+
+		float f = cos(d * 0.06) * m[i] / d*2; //decides if it gets closer or further from the mouse 
+
+		vx[i] = vx[i] * 0.4 - f * dx; //changing the velcoity so it moves towards the ring 
+		vy[i] = vy[i] * 0.2 - f * dy;
+	}
+
+	for (int i = 0; i < n; i++) {
+		x[i] += vx[i];
+		y[i] += vy[i];
+
+		if (x[i] < 0) x[i] = width;
+		else if (x[i] > width) x[i] = 0;
+
+		if (y[i] < 0) y[i] = height;
+		else if (y[i] > height) y[i] = 0;
+
+		if (m[i] < 0) fill(bluechannel[i], greenchannel[i] , 255);
+		else fill(255, bluechannel[i],redchannel[i]);
+		
+			if (shape[i] > 2) fill(bluechannel[i], greenchannel[i] , 255);
+		else fill(255, bluechannel[i],redchannel[i]);
+		
+		
+
+		if (shape[i] > 2)  rect(x[i], y[i],10,10);
+else if (shape[i] > 1 && shape[i] <=2) rect(x[i],y[i],2,2);
+else ellipse(x[i], y[i],10,10);
+
+		
+		
+	}
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+void reset() { // counter that counts up to n 
+	for (int i = 0; i < n; i++) { // i = 0, i < 10,0000, i++ what to do after each loop. 
+		m[i] = randomGaussian() * 8; // gaussian distribution is a bell curve. Distribution of the mass 
+		x[i] = random(width);
+		y[i] = random(height);
+		bluechannel[i] = random(255);
+		redchannel[i] = random(255);
+		greenchannel[i] = random(255); 
+		shape [i] = random(0,3); 
+	}
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+void mousePressed() {
+	reset();
+}
 {{< /p5-global-iframe >}}
