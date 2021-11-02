@@ -1,44 +1,104 @@
 # Catalina Aldana
-### Quienes somos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Que nos gusta de la carrera 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Quien soy
+Soy estudiante de noveno semestre de Ingenieria de Sistemas de la Universidad Nacional de Colombia. Tengo 22 años y naci en Bogota, Colombia. 
+### En que me gustaria enfocarme
+Aun no tengo muy claro en que area de la carrera me gustaria enfocarme, creo que comenzare con desarrollo de software y a medida que vaya ampliando mi conocimiento y experiencia decidire en que area trabajar.
 ### Hobby
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+Me gusta ver series, pasar tiempo con mi perro, salir a caminar y escuchar musica.
 ### Experiencia con graficos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+Tengo una experiencia en graficos muy basica. En primeros semestres hice algunos proyectos pequeños en Processing y juegos sencillos en Java.
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
-  let angle = 0;
-  let speed = 0.06;
+class Scribbler
+{
+  float prevX =0, prevY=0;
+   
+  float Theta;
+  float Distance;
+  
+  float ThetaV;
+  float DistanceV;
 
-  function setup() {
-    createCanvas(600, 600);
+  bool mvTheta = false;
+
+  float anchorX, anchorY;
+
+  float strokeW;
+  byte strokeC;
+
+  public Scribbler(float x, float y)
+  {
+    prevX = x;
+    prevY = y;
+    anchorX = x;
+    anchorY = y;
+    randomVelocities();
+    Theta = random(TWO_PI);
+    strokeW = round(1 + random(3));
+    strokeC = round(random(255));
   }
-
-  function draw() {
-    background(255, 255, 255);
-    rotateSquare();
-    if (!mouseIsPressed) {
-      strokeWeight(0);
-      stroke(0);
-      fill(255, 140, 0);
-      rect(0, 0, 281, 281);
-      rect(318, 0, 281, 281);
-      rect(0, 318, 281, 281);
-      rect(318, 318, 281, 281);
+  
+  void Update()
+  {
+    float curX = anchorX + (cos(Theta) * Distance);
+    float curY = anchorY + (sin(Theta) * Distance);
+    
+    pushStyle();
+    stroke(0,255,190,70);
+    strokeWeight(Distance * strokeW * 0.01);
+    line(prevX, prevY, curX, curY);
+    popStyle();
+    
+    prevX = curX;
+    prevY = curY;
+    
+    if(mvTheta)
+    {
+      Theta += ThetaV;
     }
+    else
+    {
+       Distance += DistanceV;
+    }
+    
+    if(random() > 0.9)
+    {
+       swapMode();
+    }
+    
+  }
+  
+  void swapMode()
+  {
+     mvTheta = !mvTheta;
+     randomVelocities();
+  }
+  
+  void randomVelocities()
+  {
+     ThetaV = -0.05 + random(0.1);
+     DistanceV = 0.2 + random();
   }
 
-  function rotateSquare() {
-    push();
-    angle += speed;
-    strokeWeight(0);
-    stroke(0);
-    fill(0, 0, 255);
-    translate(width / 2, height / 2);
-    rotate(angle);
-    rect(-187.5, -187.5, 375, 375);
-    pop();
+}
+
+ArrayList<Scribbler> scrblrs = new ArrayList();
+
+void setup()
+{
+  size(600,600);
+  background(0);
+  
+  for(int i=0; i < 30; i++)
+  {
+    scrblrs.add(new Scribbler(300,300));
   }
+  noSmooth();
+}
+
+void draw()
+{
+  for(Scribbler scrblr : scrblrs)
+  	scrblr.Update();
+}
 {{< /p5-global-iframe >}}
