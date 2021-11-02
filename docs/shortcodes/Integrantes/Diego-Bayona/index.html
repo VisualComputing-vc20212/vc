@@ -8,13 +8,13 @@
 <meta property="og:description" content="Diego Bayona #  Quien soy #  Soy estudiante de noveno semestre de Ingenieria de Sistemas y Computacion de la Universidad Naciolnal de Colombia, tengo 21 años, he trabajado como ayudante de desarrollo para proyectos en la universidad y como tutor de programacion, mis lenguajes preferidos son python, javascript, C++ y en cuanto a desarrollo me gusta mas la parte enfocada al frontend en frameworks como React.js y Vue.js">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Diego-Bayona/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-01T21:31:44-05:00">
+<meta property="article:modified_time" content="2021-11-01T21:36:19-05:00">
 <title>Diego Bayona | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.3e9f31c627eb832cb43dce3b33a486c497b7669b46a30654056a32a893dbb85b.js integrity="sha256-Pp8xxifrgyy0Pc47M6SGxJe3ZptGowZUBWoyqJPbuFs=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.b52dc88d8dcf90f987c3404f43acb6cc0195feacc8d53d4759f52eb0a09d61a2.js integrity="sha256-tS3IjY3PkPmHw0BPQ6y2zAGV/qzI1T1HWfUusKCdYaI=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -164,7 +164,7 @@ Hobbys
 Experiencia con graficos
 <a class=anchor href=#experiencia-con-graficos>#</a>
 </h3>
-<p>No poseo experencia mas alla de el desarrollo de interfaces graficas para aplicaciones web</p>
+<p>No poseo experiencia mas alla de el desarrollo de interfaces graficas para aplicaciones web</p>
 <iframe id=breath style=width:625px;height:625px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -178,89 +178,32 @@ Experiencia con graficos
             
             <script>
               
- int n = 1000; // number of dots 
+var circle = 200;
+var rot;
+var col;
+var freq = 0.000005; 
+var cont = 0;
+var r;
 
-float[] m = new float[n]; // make a new list of floating points 
-float[] x = new float[n];
-float[] y = new float[n];
-float[] vx = new float[n];
-float[] vy = new float[n];
-float[] redchannel = new float[n]; 
-float[] bluechannel = new float[n];
-float[] greenchannel = new float[n];
-float[] shape = new float[n];
-
-
-void setup() {
-	fullScreen();
-	fill(0,10);
-	reset();// running the reset when you click. 10000 random values being plugged in 
+function setup() {
+  createCanvas(600, 600);
 }
 
+function draw() {
+  background(0);
+  translate(300, 300);
+  rotate(radians(rot));
 
-
-void draw() {
-	noStroke();
-	fill(0,30);
-	rect(0, 0, width, height); //  black background 
-
-	for (int i = 0; i < n; i++) { // runs the loop 10,000 times
-		float dx = mouseX - x[i]; // distance from the mouse 
-		float dy = mouseY - y[i];
-
-		float d = sqrt(dx*dx + dy*dy); // calculating the distance between the points and the mouse 
-		if (d < 1) d = 1; 
-
-		float f = cos(d * 0.06) * m[i] / d*2; //decides if it gets closer or further from the mouse 
-
-		vx[i] = vx[i] * 0.4 - f * dx; //changing the velcoity so it moves towards the ring 
-		vy[i] = vy[i] * 0.2 - f * dy;
-	}
-
-	for (int i = 0; i < n; i++) {
-		x[i] += vx[i];
-		y[i] += vy[i];
-
-		if (x[i] < 0) x[i] = width;
-		else if (x[i] > width) x[i] = 0;
-
-		if (y[i] < 0) y[i] = height;
-		else if (y[i] > height) y[i] = 0;
-
-		if (m[i] < 0) fill(bluechannel[i], greenchannel[i] , 255);
-		else fill(255, bluechannel[i],redchannel[i]);
-		
-			if (shape[i] > 2) fill(bluechannel[i], greenchannel[i] , 255);
-		else fill(255, bluechannel[i],redchannel[i]);
-		
-		
-
-		if (shape[i] > 2)  rect(x[i], y[i],10,10);
-else if (shape[i] > 1 && shape[i] <=2) rect(x[i],y[i],2,2);
-else ellipse(x[i], y[i],10,10);
-
-		
-		
-	}
-}
-
-
-
-void reset() { // counter that counts up to n 
-	for (int i = 0; i < n; i++) { // i = 0, i < 10,0000, i++ what to do after each loop. 
-		m[i] = randomGaussian() * 8; // gaussian distribution is a bell curve. Distribution of the mass 
-		x[i] = random(width);
-		y[i] = random(height);
-		bluechannel[i] = random(255);
-		redchannel[i] = random(255);
-		greenchannel[i] = random(255); 
-		shape [i] = random(0,3); 
-	}
-}
-
-
-void mousePressed() {
-	reset();
+ ellipseMode(RADIUS);
+  for (var i=0; i<500; i ++) {
+    circle= 200 + 50*sin(millis()*freq*i);
+    col=map(circle,150,250,255,60);
+    r=map(circle,150,250,5,2);
+    fill(col,0,74);
+    noStroke();
+    ellipse(circle*cos(i), circle*sin(i),r,r);    
+    rot=rot+0.00005;
+  }
 }
 
             </script>
@@ -272,7 +215,7 @@ void mousePressed() {
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/4a7bed8d3ae7e35ef62fdb8c074f9e806250b997 title="Last modified by VirtualDiegox | November 2, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/6a4c578eaee0f3fe4061b318bdf4714eb3eb6a04 title="Last modified by VirtualDiegox | November 2, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 2, 2021</span>
 </a>
