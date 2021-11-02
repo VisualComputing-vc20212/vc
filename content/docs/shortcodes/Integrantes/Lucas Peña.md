@@ -8,37 +8,112 @@ Mis hobbies son jugar videojuegos, hacer caminatas, escuchar música y jugar vol
 ### Experiencia con graficos
 No cuento con mucha experiencia en gráficos. En primer semestre programé un juego sencillo en Processing y en segundo semestre un juego más complejo en Java.
 
-{{< p5-global-iframe id="breath" width="625" height="625" >}}
-  let angle = 0;
-  let speed = 0.06;
+{{< p5-global-iframe id="breath" width="650" height="650" >}}
+  // PBa
+// 2021-06-17
+// Optical Illusio
+// Ideas from https://mathworld.wolfram.com/Illusion.html
+// Ideas from https:/michaelbach.de/ot/
 
-  function setup() {
-    createCanvas(600, 600);
-  }
+function setup()
+{
+  createCanvas(625,625);
+  noStroke();
+  cred=color(255,0,0);
+  cgreen=color(0,255,0);
+  cblue=color(0,0,255);
+  clblue=color(200,200,240);
+  cbackg=color(200,200,255);
+  cyellow=color(254,255,23);
+  corange=color(234,214,28);
+  cwhite=color(255,255,255);
+  cgrey=color(74,74,74);
+  cblack=color(0,0,0);
+  init=0;
+}
 
-  function draw() {
-    background(255, 255, 255);
-    rotateSquare();
-    if (!mouseIsPressed) {
-      strokeWeight(0);
-      stroke(0);
-      fill(255, 140, 0);
-      rect(0, 0, 281, 281);
-      rect(318, 0, 281, 281);
-      rect(0, 318, 281, 281);
-      rect(318, 318, 281, 281);
-    }
-  }
+function draw()
+{  
+   if(init==0)
+     {
+       push();
+        xc=0;
+        yc=0;
+        let dx=68;
+        background(255);
+        fill(cyellow);
+        stroke(cblack);
+        rect(1000,100,150,40,4,4);
+        fill(cblack);
+        stroke(cblack);       
+        strokeWeight(1);
+            for(let nl=0;nl<10;nl++)
+            {
+              for(let nc=0;nc<10;nc++)
+                {
+                  if(nc%2 +nl%2 ==1)
+                  {
+                    fill(cwhite);
+                  }
+                else
+                  {
+                    fill(cblack);
+                  }
+                rect(xc+nc*dx,yc+nl*dx,70,70);
+                if(nc%2 +nl%2 ==1)
+                  {
+                    fill(cblack);
+                  }
+                else
+                  {
+                    fill(cwhite);
+                  }
+                if(nc<5 & nl<4)
+                   {
+                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
+                   }
+                 if(nc>5 & nl<4)
+                   {
+                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
+                   }      
+                 if(nl==4 & nc<5)
+                   {
+                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
+                   }
+                 if(nl==4 & nc>5)
+                   {
+                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
+                   }
+                 if(nc<5 & nl>4)
+                   {
+                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
+                   }
+                 if(nc>5 & nl>4)
+                   {
+                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
+                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
+                   }
+                 if(nc==5 & nl<5)
+                   {
+                    circle(xc+nc*dx+13,yc+nl*dx+57,19);
+                    circle(xc+nc*dx+57,yc+nl*dx+57,19);
+                   }
+                 if(nc==5 & nl>5)
+                   {
+                    circle(xc+nc*dx+13,yc+nl*dx+13,19);
+                    circle(xc+nc*dx+57,yc+nl*dx+13,19);
+                   }
+                }    //end nc
+            }
+       pop();
+     
+      }
+}   
 
-  function rotateSquare() {
-    push();
-    angle += speed;
-    strokeWeight(0);
-    stroke(0);
-    fill(0, 0, 255);
-    translate(width / 2, height / 2);
-    rotate(angle);
-    rect(-187.5, -187.5, 375, 375);
-    pop();
-  }
+  
 {{< /p5-global-iframe >}}
