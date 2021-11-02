@@ -1,50 +1,44 @@
-# Tabs
+# Lucas Peña
+### Quienes somos
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Que nos gusta de la carrera 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Hobby
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Experiencia con graficos
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
 
-Tabs let you organize content by context, for example installation instructions for each supported platform.
+{{< p5-global-iframe id="breath" width="625" height="625" >}}
+  let angle = 0;
+  let speed = 0.06;
 
-```tpl
-{{</* tabs "uniqueid" */>}}
-{{</* tab "MacOS" */>}} # MacOS Content {{</* /tab */>}}
-{{</* tab "Linux" */>}} # Linux Content {{</* /tab */>}}
-{{</* tab "Windows" */>}} # Windows Content {{</* /tab */>}}
-{{</* /tabs */>}}
-```
+  function setup() {
+    createCanvas(600, 600);
+  }
 
-## Example
+  function draw() {
+    background(255, 255, 255);
+    rotateSquare();
+    if (!mouseIsPressed) {
+      strokeWeight(0);
+      stroke(0);
+      fill(255, 140, 0);
+      rect(0, 0, 281, 281);
+      rect(318, 0, 281, 281);
+      rect(0, 318, 281, 281);
+      rect(318, 318, 281, 281);
+    }
+  }
 
-{{< tabs "uniqueid" >}}
-{{< tab "MacOS" >}}
-# MacOS
-
-This is tab **MacOS** content.
-
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-protulit, sed sed aere valvis inhaesuro Pallas animam: qui _quid_, ignes.
-Miseratus fonte Ditis conubia.
-{{< /tab >}}
-
-{{< tab "Linux" >}}
-
-# Linux
-
-This is tab **Linux** content.
-
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-protulit, sed sed aere valvis inhaesuro Pallas animam: qui _quid_, ignes.
-Miseratus fonte Ditis conubia.
-{{< /tab >}}
-
-{{< tab "Windows" >}}
-
-# Windows
-
-This is tab **Windows** content.
-
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-protulit, sed sed aere valvis inhaesuro Pallas animam: qui _quid_, ignes.
-Miseratus fonte Ditis conubia.
-{{< /tab >}}
-{{< /tabs >}}
+  function rotateSquare() {
+    push();
+    angle += speed;
+    strokeWeight(0);
+    stroke(0);
+    fill(0, 0, 255);
+    translate(width / 2, height / 2);
+    rotate(angle);
+    rect(-187.5, -187.5, 375, 375);
+    pop();
+  }
+{{< /p5-global-iframe >}}
