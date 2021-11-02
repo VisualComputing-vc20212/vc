@@ -10,13 +10,13 @@ En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he he
 En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he hecho diferentes cursos de coursera relacionados con el tema y me enamore.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Alejandra-Zambrano/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-01T22:05:04-04:00">
+<meta property="article:modified_time" content="2021-11-01T22:08:24-04:00">
 <title>Alejandra Zambrano | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.b3e808996b25fee0a4496cf39e32727514a486cd93d0be2de178bdbb9c4b2793.js integrity="sha256-s+gImWsl/uCkSWzznjJydRSkhs2T0L4t4Xi9u5xLJ5M=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.e183204423d5143e8634a00e27f7e86e07960ec6311f1892cc4047ae090bdd26.js integrity="sha256-4YMgRCPVFD6GNKAOJ/fobgeWDsYxHxiSzEBHrgkL3SY=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -167,7 +167,7 @@ Experiencia con graficos
 <a class=anchor href=#experiencia-con-graficos>#</a>
 </h3>
 <p>La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.</p>
-<iframe id=breath style=width:625px;height:625px srcdoc="
+<iframe id=breath style=width:625px;height:625px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -180,62 +180,97 @@ Experiencia con graficos
             
             <script>
               
-float angle;
-float radius = 600;
-float change = 0;
-float speed = 1;
-void setup(){
-  size(750, 750);
-  background(128);
-  fill(0);
-}
-void draw(){
-  angle+= speed * (PI / 102);
-  radius=radius / (1 + .001 * speed);
-  change+= 1;
-  noStroke();
-  fill(0, 200, 0);
-  translate(375, 375);
-  rotate(angle);
-    if (change%8 == 0){
-    fill(255);
-  }else if (change%8 == 4){
-    fill(0);
-  }else if (change%8 == 1){
-    fill(210, 210, 0);
-  }else if (change%8 == 5){
-    fill(50, 50, 255);
-  }else{
-    noFill();
+var constellation = [];
+var n;
+var d;
+var a;
+
+function setup() {
+  createCanvas(500, 500);
+  pixelDensity(1); // Set 1 because it&#39;s too slow on firefox
+  //pixelDensity(displayDensity());
+  n = 200;
+
+  for (var i = 0; i <= n; i++) {
+    constellation.push(new star());
   }
-  ellipse(radius, 0,radius / 5, radius / 3);
+  strokeWeight(.75);
+	a=random(100,255)
+  stroke(a,255,255);
 }
-void keyPressed(){
-  if (key == 's'){
-    speed++;
-    restart();
+
+function	mousePressed(){
+	a=random(10,255)
+  stroke(a,255,255);
+	}
+
+function draw() {
+
+  background(&#39;#000000&#39;);
+
+  for (var i = 0; i < constellation.length; i++) {
+    constellation[i].update();
+    for (var j = 0; j < constellation.length; j++) {
+      if (i > j) { // "if (i > j)" => to check one time distance between two stars
+        d = constellation[i].loc.dist(constellation[j].loc); // Distance between two stars
+        if (d <= width / 10) { // if d is less than width/10 px, we draw a line between the two stars
+          line(constellation[i].loc.x, constellation[i].loc.y, constellation[j].loc.x, constellation[j].loc.y)
+        }
+      }
+    }
   }
-  if (key == 'd'){
-    speed--;
-    restart();
-  }
+
 }
-void restart(){
-  background(128);
-  angle = 0;
-  radius = 600;
-}
+
+function star() {
+
+  this.a = random(5 * TAU); // "5*TAU" => render will be more homogeneous
+  this.r = random(width * .2, width * .25); // first position will looks like a donut
+  this.loc = createVector(width / 2 + sin(this.a) * this.r, height / 2 + cos(this.a) * this.r);
+  this.speed = createVector();
+  this.speed = p5.Vector.random2D();
+  //this.speed.random2D();
+  this.bam = createVector();
+  this.m;
+
+
+  this.update = function() {
+      this.bam = p5.Vector.random2D(); // movement of star will be a bit erractic
+      //this.bam.random2D();
+      this.bam.mult(0.45);
+      this.speed.add(this.bam);
+      // speed is done according distance between loc and the mouse :
+      this.m = constrain(map(dist(this.loc.x, this.loc.y, mouseX, mouseY), 0, width, 8, .05), .05, 8); // constrain => avoid returning "not a number"
+      this.speed.normalize().mult(this.m);
+
+      // No colision detection, instead loc is out of bound
+      // it reappears on the opposite side :
+      if (dist(this.loc.x, this.loc.y, width / 2, height / 2) > (width / 2) * 0.98) {
+        if (this.loc.x < width / 2) {
+          this.loc.x = width - this.loc.x - 4; // "-4" => avoid blinking stuff
+        } else if (this.loc.x > width / 2) {
+          this.loc.x = width - this.loc.x + 4; // "+4"  => avoid blinking stuff
+        }
+        if (this.loc.y < height / 2) {
+          this.loc.y = width - this.loc.y - 4;
+        } else if (this.loc.x > height / 2) {
+          this.loc.y = width - this.loc.y + 4;
+        }
+      }
+      this.loc = this.loc.add(this.speed);
+    } // End of update()
+} // End of class
 
             </script>
           </head>
           <body>
           </body>
         </html>
-      "></iframe>
+      '></iframe>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/aee4035431c05123599f4f49957abf0f1d3bea3a title="Last modified by alzambranolu13 | November 2, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/5adb9cf69c0d493e612e9a74d254d7b333353f29 title="Last modified by alzambranolu13 | November 2, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 2, 2021</span>
 </a>
