@@ -1,44 +1,47 @@
 # Andres Ardila
-### Quienes somos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Que nos gusta de la carrera 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Hobby
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+### Quien soy
+Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia
+### En que me gustaría enfocarme
+No lo sé aún, quizas en la rama administrativa de la carrera.
+### Hobbies
+Me gusta el fútbol y los videojuegos. 
 ### Experiencia con graficos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.
+
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
-  let angle = 0;
-  let speed = 0.06;
+ var x;
+var y;
+var nx;
+var ny;
+ 
+var col;
+var a;
+var b;
+var c;
 
-  function setup() {
-    createCanvas(600, 600);
-  }
+function setup(){
+  createCanvas(600,600);
+  background(0);
+ blendMode(ADD);
+}
 
-  function draw() {
-    background(255, 255, 255);
-    rotateSquare();
-    if (!mouseIsPressed) {
-      strokeWeight(0);
-      stroke(0);
-      fill(255, 140, 0);
-      rect(0, 0, 281, 281);
-      rect(318, 0, 281, 281);
-      rect(0, 318, 281, 281);
-      rect(318, 318, 281, 281);
-    }
-  }
-
-  function rotateSquare() {
-    push();
-    angle += speed; 
-    strokeWeight(0);
-    stroke(0);
-    fill(0, 0, 255);
-    translate(width / 2, height / 2);
-    rotate(angle);
-    rect(-187.5, -187.5, 375, 375);
-    pop();
-  }
+function draw(){
+  x = random(0,width);
+  y = random(0,height);
+  
+  nx = random(0,width);
+  ny = random(0,height);
+  a= random(0,255);
+  b= random(0,255);
+	c= random(0,255);
+  col = color(a,b,c,50);
+  
+  noFill();
+  stroke(col);
+  
+  line(x,y,nx,ny);
+  
+  
+}
 {{< /p5-global-iframe >}}
