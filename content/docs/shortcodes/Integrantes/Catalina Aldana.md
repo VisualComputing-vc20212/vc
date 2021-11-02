@@ -2,7 +2,7 @@
 ### Quien soy
 Soy estudiante de noveno semestre de Ingenieria de Sistemas de la Universidad Nacional de Colombia. Tengo 22 años y naci en Bogota, Colombia. 
 ### En que me gustaria enfocarme
-Aun no tengo muy claro en que area de la carrera me gustaria enfocarme, creo que comenzare con desarrollo de software y a medida que vaya ampliando mi conocimiento y experiencia decidire en que area trabajar. PANIIIIIIIIC
+Aun no tengo muy claro en que area de la carrera me gustaria enfocarme, creo que comenzare con desarrollo de software y a medida que vaya ampliando mi conocimiento y experiencia decidire en que area trabajar. 
 ### Hobby
 Me gusta ver series, pasar tiempo con mi perro, salir a caminar y escuchar musica.
 ### Experiencia con graficos
@@ -79,3 +79,5 @@ function mouseDragged() {
 	addNewParticle();
 }
 {{< /p5-global-iframe >}}
+
+creds: (https://openprocessing.org/sketch/492096)
