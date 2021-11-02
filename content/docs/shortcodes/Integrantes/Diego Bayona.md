@@ -28,7 +28,6 @@ float[] bluechannel = new float[n];
 float[] greenchannel = new float[n];
 float[] shape = new float[n];
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 void setup() {
 	fullScreen();
@@ -36,7 +35,7 @@ void setup() {
 	reset();// running the reset when you click. 10000 random values being plugged in 
 }
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 void draw() {
 	noStroke();
@@ -83,7 +82,7 @@ else ellipse(x[i], y[i],10,10);
 	}
 }
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 void reset() { // counter that counts up to n 
 	for (int i = 0; i < n; i++) { // i = 0, i < 10,0000, i++ what to do after each loop. 
@@ -97,7 +96,6 @@ void reset() { // counter that counts up to n
 	}
 }
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 void mousePressed() {
 	reset();
