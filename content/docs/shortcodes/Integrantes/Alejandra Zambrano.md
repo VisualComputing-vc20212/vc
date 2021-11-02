@@ -9,7 +9,7 @@ Me encanta el deporte, solía entrenar baloncesto pero me toco dejarlo. Actualme
 ### Experiencia con graficos
 La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.
 
-{{< p5-global-iframe id="breath" width="550" height="550" >}}
+{{< p5-global-iframe id="breath" width="530" height="530" >}}
 var constellation = [];
 var n;
 var d;
