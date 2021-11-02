@@ -1,12 +1,12 @@
 # Lucas Peña
 ### Quienes somos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
-### Que nos gusta de la carrera 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+Soy Lucas Peña tengo 22 años y soy estudiante de noveno semestre de Ingenieria de Sistemas en la Universida Nacional de Colombia. Actualmente trabajo como desarrollador de software en una empresa enfocada a las telecomunicaciones, desarrollo principalmente en C#.
+### En que me gustaría enfocarme
+Aunque actualmente soy desarrollador de software, no creo que sea el área donde quiera enfocarme. Siempre he tenido un fuerte interes por los videojuegos, así que esa podría ser el área en la que me gustaría enfocarme.
 ### Hobby
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+Mis hobbies son jugar videojuegos, hacer caminatas, escuchar música y jugar volleyball.
 ### Experiencia con graficos
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis leo enim. Phasellus hendrerit non eros at aliquam. Pellentesque eget leo cursus, pretium neque quis, suscipit metus. Maecenas bibendum est faucibus scelerisque vestibulum. Donec vitae lacus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vel nunc quam. Proin blandit turpis ac consectetur viverra. Donec efficitur sapien sed efficitur tincidunt.
+No cuento con mucha experiencia en gráficos. En primer semestre programé un juego sencillo en Processing y en segundo semestre un juego más complejo en Java.
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
   let angle = 0;
