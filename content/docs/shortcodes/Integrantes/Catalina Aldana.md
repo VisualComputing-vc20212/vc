@@ -9,41 +9,73 @@ Me gusta ver series, pasar tiempo con mi perro, salir a caminar y escuchar music
 Tengo una experiencia en graficos muy basica. En primeros semestres hice algunos proyectos pequeños en Processing y juegos sencillos en Java. 
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
-float x;
-float y;
-float w;
-　　
-void setup(){
-  size(600,600);
-  background(128);
-  
+var mass = [];
+var positionX = [];
+var positionY = [];
+var velocityX = [];
+var velocityY = [];
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	noStroke();
+	fill(64, 255, 255, 192);
 }
 
-void draw(){
-  x = random(0,width);
-  y = random(0,height);
-  w = random(2,20);
-  
-  noStroke();
-  
-  if(x < 300 && y < 300){
-    //xが300未満だったら
-    fill(255,0,0);
-    
-  }
-  if(x>=300 && y < 300){
-    //xが以上だったら
-    fill(255,255,255);
-  }
-	if(x<300 && y >= 300){
-    //xが300未満だったら
-    fill(0,0,255);
-    
-  }
-  if(x>=300 && y>=300){
-    //xが以上だったら
-    fill(255,255,0);
-  }
-  ellipse(x, y, w, w);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function draw() {
+	background(32);
+	
+	for (var particleA = 0; particleA < mass.length; particleA++) {
+		var accelerationX = 0, accelerationY = 0;
+		
+		for (var particleB = 0; particleB < mass.length; particleB++) {
+			if (particleA != particleB) {
+				var distanceX = positionX[particleB] - positionX[particleA];
+				var distanceY = positionY[particleB] - positionY[particleA];
+
+				var distance = sqrt(distanceX * distanceX + distanceY * distanceY);
+				if (distance < 1) distance = 1;
+
+				var force = (distance - 320) * mass[particleB] / distance;
+				accelerationX += force * distanceX;
+				accelerationY += force * distanceY;
+			}
+		}
+		
+		velocityX[particleA] = velocityX[particleA] * 0.99 + accelerationX * mass[particleA];
+		velocityY[particleA] = velocityY[particleA] * 0.99 + accelerationY * mass[particleA];
+	}
+	
+	for (var particle = 0; particle < mass.length; particle++) {
+		positionX[particle] += velocityX[particle];
+		positionY[particle] += velocityY[particle];
+		
+		ellipse(positionX[particle], positionY[particle], mass[particle] * 1000, mass[particle] * 1000);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function addNewParticle() {
+	mass.push(random(0.003, 0.03));
+	positionX.push(mouseX);
+	positionY.push(mouseY);
+	velocityX.push(0);
+	velocityY.push(0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function mouseClicked() {
+	addNewParticle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function mouseDragged() {
+	addNewParticle();
 }
 {{< /p5-global-iframe >}}
