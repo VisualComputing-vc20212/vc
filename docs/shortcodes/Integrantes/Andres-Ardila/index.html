@@ -14,13 +14,13 @@ Hobbies #  Me gusta el fútbol y los videojuegos.
 Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Andres-Ardila/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-01T21:31:14-05:00">
+<meta property="article:modified_time" content="2021-11-08T23:27:13-05:00">
 <title>Andres Ardila | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.df62e315f56c568f5701188ae6d93699a44ed69a666d24955bf6ff705f5764df.js integrity="sha256-32LjFfVsVo9XARiK5tk2maRO1ppmbSSVW/b/cF9XZN8=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.d243e13cc0fd0c9f12bd498994c4363e154e4954bd38b394b7a545971ff362a7.js integrity="sha256-0kPhPMD9DJ8SvUmJlMQ2PhVOSVS9OLOUt6VFlx/zYqc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -171,7 +171,7 @@ Experiencia con graficos
 <a class=anchor href=#experiencia-con-graficos>#</a>
 </h3>
 <p>En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.</p>
-<iframe id=breath style=width:625px;height:625px srcdoc="
+<iframe id=breath style=width:700px;height:800px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -184,39 +184,45 @@ Experiencia con graficos
             
             <script>
               
- var x;
-var y;
-var nx;
-var ny;
- 
-var col;
-var a;
-var b;
-var c;
 
-function setup(){
-  createCanvas(600,600);
-  background(0);
- blendMode(ADD);
+function setup()
+{
+  createCanvas(1300,700);
+  noStroke();
+  cred=color(255,0,0);
+  cblack=color(0,0,0);
+  init=7;
+
+
 }
 
-function draw(){
-  x = random(0,width);
-  y = random(0,height);
-  
-  nx = random(0,width);
-  ny = random(0,height);
-  a= random(0,255);
-  b= random(0,255);
-	c= random(0,255);
-  col = color(a,b,c,50);
-  
-  noFill();
-  stroke(col);
-  
-  line(x,y,nx,ny);
-  
-  
+
+function draw()
+{
+if(init==7)
+     {
+        push();
+      
+        let offset=[0,40,80,40,0,40,80,40,0,40];
+        xc=100;
+        yc=150;
+        let dx=20;
+        background(255);  
+        stroke(cblack);
+        fill(cblack);
+        strokeWeight(10);
+        for(let nl=0;nl<8;nl++)
+          {
+            stroke(cred);
+            line(xc,yc+nl*85,xc+1070,yc+nl*85);            
+            for(let i=0;i<6;i++)
+              {
+                noStroke();
+                rect(xc+i*180+ offset[nl],yc+nl*85-80,85,78);
+              }
+          }           
+        pop();
+      }
 }
 
             </script>
@@ -225,13 +231,13 @@ function draw(){
           </body>
         </html>
       "></iframe>
-<p>Fuente: <a href="https://openprocessing.org/user/190726?view=sketches">https://openprocessing.org/user/190726?view=sketches</a></p>
+<p>Fuente: <a href=https://openprocessing.org/sketch/1238842>https://openprocessing.org/sketch/1238842</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/9441c5a0465676ac011108db67006454c25fe1b3 title="Last modified by Andres Ardila | November 2, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/87069afe071c6f199a4ecbe61d4282cf7aa7f2fe title="Last modified by Andres Ardila | November 9, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 2, 2021</span>
+<span>November 9, 2021</span>
 </a>
 </div>
 </div>
