@@ -12,49 +12,41 @@ La unica experiencia con gráficos es que en primer semestre hice un juego parec
 
 ## The Kanizsa Triangle Illusion
 {{< p5-global-iframe id="breath" width="530" height="530" >}}
-// Read about Illusory contours and the Kanizsa's Triangle on Wikipedia
-// https://en.wikipedia.org/wiki/Illusory_contours
-
-// Create an array to hold three points  
-PVector[] pv = new PVector[3]; 
-
-void setup() {
-  size(800, 800);
-  background(255);
-  rectMode(CENTER);
-  smooth();
-  noLoop();
+function setup() {
+  createCanvas(400, 400);//create  the canvas
 }
-void draw() {
-  // Set our points
-  pv[0] = new PVector(120, 190);
-  pv[1] = new PVector(685, 190);
-  pv[2] = new PVector(400, 685);
-  
-  // Create a circle at each point around the triangle
-  strokeWeight(2);  
-  stroke(0,0,0);
-  fill(0);
-  for(int i = 0; i <= 2; i++)
-  {
-    // ellipse(x, y, width, height)  
-    ellipse(pv[i].x, pv[i].y, 200, 200); 
-  } 
-  
-  // Draw a triangle outline
-  strokeWeight(8);  
-  stroke(0,0,0);
-  fill(255);  
-  triangle(400, 20, 685, 530, 110, 530);
-
-  // Draw a white triangle which cuts out the other shapes
-  strokeWeight(0);
-  stroke(255,255,255);
-  fill(255);   
-  // Initial point of a triangle is rounded by default?
-  strokeJoin(MITER);
-  triangle(120, 190, 685, 190, 400, 685);
-}  
+function draw() {
+  translate(200,200)
+  strokeWeight(3)
+  stroke(0);
+  noFill();
+  push()
+  rotate(PI/6)
+  polygon(0,0,100,3)
+  pop()
+  noStroke()
+  fill(0)
+  circle(100*cos(-5*PI/6),100*sin(-5*PI/6),50)
+  circle(100*cos(-PI/6),100*sin(-PI/6),50)
+  circle(100*cos(3*PI/6),100*sin(3*PI/6),50)
+  fill(255);
+  push()
+  rotate(-PI/6)
+  polygon(0,0,100,3)
+  pop()
+  noLoop()
+}
+//p5js polygon function from p5js.org
+function polygon(x, y, radius, npoints) {
+  let angle = TWO_PI / npoints;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius;
+    let sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
 
 {{< /p5-global-iframe >}}
 
