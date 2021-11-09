@@ -10,13 +10,13 @@ En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he he
 En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he hecho diferentes cursos de coursera relacionados con el tema y me enamore.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Alejandra-Zambrano/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-09T10:01:58-05:00">
+<meta property="article:modified_time" content="2021-11-09T10:04:33-05:00">
 <title>Alejandra Zambrano | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.1d42d75ea4240044b297975276502f997cb5a8b6fab2bf29c61803b30e0ff986.js integrity="sha256-HULXXqQkAESyl5dSdlAvmXy1qLb6sr8pxhgDsw4P+YY=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.0f8d3d4230edb03f31e3218562e83d6c590a7905bc81efbb9852be410d933cb5.js integrity="sha256-D409QjDtsD8x4yGFYug9bFkKeQW8ge+7mFK+QQ2TPLU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -189,40 +189,83 @@ The Kanizsa Triangle Illusion
             
             <script>
               
+let angle = 0
+
 function setup() {
-  createCanvas(400, 400);//create  the canvas
+  createCanvas(400, 400);
 }
+
 function draw() {
-  translate(200,200)
-  strokeWeight(3)
-  stroke(0);
-  noFill();
+  background(220);
+
+  //First
+  fill(255, 0, 0)
+  stroke(255,255,0)
+  strokeWeight(2)
+
   push()
-  rotate(PI/6)
-  polygon(0,0,100,3)
+  translate(50, 150)
+  rotate(HALF_PI + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
   pop()
-  noStroke()
-  fill(0)
-  circle(100*cos(-5*PI/6),100*sin(-5*PI/6),50)
-  circle(100*cos(-PI/6),100*sin(-PI/6),50)
-  circle(100*cos(3*PI/6),100*sin(3*PI/6),50)
-  fill(255);
+
   push()
-  rotate(-PI/6)
-  polygon(0,0,100,3)
+  strokeWeight(2)
+  translate(150, 150)
+  rotate(HALF_PI * 2 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
   pop()
-  noLoop()
-}
-//p5js polygon function from p5js.org
-function polygon(x, y, radius, npoints) {
-  let angle = TWO_PI / npoints;
-  beginShape();
-  for (let a = 0; a < TWO_PI; a += angle) {
-    let sx = x + cos(a) * radius;
-    let sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
+
+  push()
+  strokeWeight(2)
+  translate(150, 250)
+  rotate(HALF_PI * 3 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(50, 250)
+  rotate(HALF_PI * 4 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  //Second
+  fill(0,163,0)
+  stroke(255,255,0)
+  strokeWeight(2)
+
+  push()
+  strokeWeight(2)
+  translate(250, 150)
+  rotate(HALF_PI * 3 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 150)
+  rotate(HALF_PI * 4 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(250, 250)
+  rotate(HALF_PI * 2 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 250)
+  rotate(HALF_PI - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  angle += 0.003
 }
 
 
@@ -232,7 +275,7 @@ function polygon(x, y, radius, npoints) {
           </body>
         </html>
       "></iframe>
-<p>creds: (<a href=https://openprocessing.org/sketch/691631>https://openprocessing.org/sketch/691631</a>)</p>
+<p>creds: (<a href=https://fractalkitty.com/2021/07/22/coded-optical-illusions/>https://fractalkitty.com/2021/07/22/coded-optical-illusions/</a>)</p>
 <h3 id=explicacion>
 Explicacion
 <a class=anchor href=#explicacion>#</a>
@@ -243,7 +286,7 @@ Explicacion
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/6e1ea4184c12bdc8b614fbd240c08a621feda49c title="Last modified by alzambranolu13 | November 9, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/e84e95ca9a3d3267a0a14c777960a99b916786d2 title="Last modified by alzambranolu13 | November 9, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 9, 2021</span>
 </a>
