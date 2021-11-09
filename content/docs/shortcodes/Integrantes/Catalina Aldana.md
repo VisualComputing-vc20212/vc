@@ -10,12 +10,12 @@ Tengo una experiencia en graficos muy basica. En primeros semestres hice algunos
 
 {{< p5-global-iframe id="breath" width="625" height="625" >}}
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(625, 625);
 }
 
 function draw() {
   background(0);
-  if (mouseX < 200) {
+  if (mouseX < 313) {
     HermmanGrid()  // Left
   }
   else {
