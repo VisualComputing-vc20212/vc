@@ -15,7 +15,7 @@ En que me gustaría enfocarme #  Aunque actualmente soy desarrollador de softwar
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.1f6ee7e5fd55f665de3e12dcb09e87a23da95fd2f3ef49914fa12e3ca23c8322.js integrity="sha256-H27n5f1V9mXePhLcsJ6Hoj2pX9Lz70mRT6EuPKI8gyI=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.c0750c4025051543c1dc057ebab206c86c6e6aaf04c27853b63db9213863b634.js integrity="sha256-wHUMQCUFFUPB3AV+urIGyGxuaq8EwnhTtj25IThjtjQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -166,7 +166,7 @@ Experiencia con graficos
 <a class=anchor href=#experiencia-con-graficos>#</a>
 </h3>
 <p>No cuento con mucha experiencia en gráficos. En primer semestre programé un juego sencillo en Processing y en segundo semestre un juego más complejo en Java.</p>
-<iframe id=breath style=width:650px;height:650px srcdoc="
+<iframe id=breath style=width:660px;height:660px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -187,7 +187,7 @@ Experiencia con graficos
 
 function setup()
 {
-  createCanvas(625,625);
+  createCanvas(640,640);
   noStroke();
   cred=color(255,0,0);
   cgreen=color(0,255,0);
@@ -200,90 +200,107 @@ function setup()
   cgrey=color(74,74,74);
   cblack=color(0,0,0);
   init=0;
+  hide=false;
 }
 
-function draw()
-{  
-   if(init==0)
-     {
-       push();
-        xc=0;
-        yc=0;
-        let dx=68;
-        background(255);
-        fill(cyellow);
-        stroke(cblack);
-        rect(1000,100,150,40,4,4);
-        fill(cblack);
-        stroke(cblack);       
-        strokeWeight(1);
-            for(let nl=0;nl<10;nl++)
-            {
-              for(let nc=0;nc<10;nc++)
-                {
-                  if(nc%2 +nl%2 ==1)
-                  {
+function draw() {
+    push();
+    xc = 0;
+    yc = 0;
+    let dx = 68;
+    background(255);
+    fill(cyellow);
+    stroke(cblack);
+    rect(1000, 100, 150, 40, 4, 4);
+    fill(cblack);
+    stroke(cblack);
+    strokeWeight(1);
+    if (hide == false) {
+        for (let nl = 0; nl < 9; nl++) {
+            for (let nc = 0; nc < 9; nc++) {
+                if (nc % 2 + nl % 2 == 1) {
                     fill(cwhite);
-                  }
-                else
-                  {
+                }
+                else {
                     fill(cblack);
-                  }
-                rect(xc+nc*dx,yc+nl*dx,70,70);
-                if(nc%2 +nl%2 ==1)
-                  {
+                }
+                rect(xc + nc * dx, yc + nl * dx, 70, 70);
+                if (nc % 2 + nl % 2 == 1) {
                     fill(cblack);
-                  }
-                else
-                  {
+                }
+                else {
                     fill(cwhite);
-                  }
-                if(nc<5 & nl<4)
-                   {
-                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
-                   }
-                 if(nc>5 & nl<4)
-                   {
-                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
-                   }      
-                 if(nl==4 & nc<5)
-                   {
-                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
-                   }
-                 if(nl==4 & nc>5)
-                   {
-                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
-                   }
-                 if(nc<5 & nl>4)
-                   {
-                     circle(xc+nc*dx+13,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+57,yc+nl*dx+57,19);
-                   }
-                 if(nc>5 & nl>4)
-                   {
-                     circle(xc+nc*dx+57,yc+nl*dx+13,19);
-                     circle(xc+nc*dx+13,yc+nl*dx+57,19);
-                   }
-                 if(nc==5 & nl<5)
-                   {
-                    circle(xc+nc*dx+13,yc+nl*dx+57,19);
-                    circle(xc+nc*dx+57,yc+nl*dx+57,19);
-                   }
-                 if(nc==5 & nl>5)
-                   {
-                    circle(xc+nc*dx+13,yc+nl*dx+13,19);
-                    circle(xc+nc*dx+57,yc+nl*dx+13,19);
-                   }
-                }    //end nc
+                }
+
+
+                //Esquina superior izq.
+                if (nc < 4 & nl < 4) {
+                    circle(xc + nc * dx + 57, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 13, yc + nl * dx + 57, 19);
+                }
+
+                //Esquina superior der.
+                if (nc > 4 & nl < 4) {
+                    circle(xc + nc * dx + 13, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 57, yc + nl * dx + 57, 19);
+                }
+                //Centro izquierda      
+                if (nl == 4 & nc < 4) {
+                    circle(xc + nc * dx + 57, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 57, yc + nl * dx + 57, 19);
+                }
+                //Centro derecha
+                if (nl == 4 & nc > 4) {
+                    circle(xc + nc * dx + 13, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 13, yc + nl * dx + 57, 19);
+                }
+                //Esquina inferior izq.
+                if (nc < 4 & nl > 4) {
+                    circle(xc + nc * dx + 13, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 57, yc + nl * dx + 57, 19);
+                }
+                //Esquina inferior der.
+                if (nc > 4 & nl > 4) {
+                    circle(xc + nc * dx + 57, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 13, yc + nl * dx + 57, 19);
+                }
+                //Centro superior.
+                if (nc == 4 & nl < 4) {
+                    circle(xc + nc * dx + 13, yc + nl * dx + 57, 19);
+                    circle(xc + nc * dx + 57, yc + nl * dx + 57, 19);
+                }
+                //Centro inferior
+                if (nc == 4 & nl > 4) {
+                    circle(xc + nc * dx + 13, yc + nl * dx + 13, 19);
+                    circle(xc + nc * dx + 57, yc + nl * dx + 13, 19);
+                }
+            }    //end nc
+        }
+    }
+
+        if (hide == true) {
+            for (let nl = 0; nl < 9; nl++) {
+                for (let nc = 0; nc < 9; nc++) {
+                    if (nc % 2 + nl % 2 == 1) {
+                        fill(cwhite);
+                    }
+                    else {
+                        fill(cblack);
+                    }
+                    rect(xc + nc * dx, yc + nl * dx, 70, 70);
+                }
             }
-       pop();
-     
-      }
-}   
+        }
+    
+    pop();
+}
+
+
+function mousePressed() {
+    console.log("CLICK");
+    hide = !hide;
+    console.log(hide);
+}
 
   
 
@@ -292,7 +309,7 @@ function draw()
           <body>
           </body>
         </html>
-      "></iframe>
+      '></iframe>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
