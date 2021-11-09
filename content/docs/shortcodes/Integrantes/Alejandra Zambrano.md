@@ -12,45 +12,88 @@ La unica experiencia con gráficos es que en primer semestre hice un juego parec
 
 ## The Kanizsa Triangle Illusion
 {{< p5-global-iframe id="breath" width="530" height="530" >}}
+let angle = 0
+
 function setup() {
-  createCanvas(400, 400);//create  the canvas
+  createCanvas(400, 400);
 }
+
 function draw() {
-  translate(200,200)
-  strokeWeight(3)
-  stroke(0);
-  noFill();
+  background(220);
+
+  //First
+  fill(255, 0, 0)
+  stroke(255,255,0)
+  strokeWeight(2)
+
   push()
-  rotate(PI/6)
-  polygon(0,0,100,3)
+  translate(50, 150)
+  rotate(HALF_PI + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
   pop()
-  noStroke()
-  fill(0)
-  circle(100*cos(-5*PI/6),100*sin(-5*PI/6),50)
-  circle(100*cos(-PI/6),100*sin(-PI/6),50)
-  circle(100*cos(3*PI/6),100*sin(3*PI/6),50)
-  fill(255);
+
   push()
-  rotate(-PI/6)
-  polygon(0,0,100,3)
+  strokeWeight(2)
+  translate(150, 150)
+  rotate(HALF_PI * 2 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
   pop()
-  noLoop()
-}
-//p5js polygon function from p5js.org
-function polygon(x, y, radius, npoints) {
-  let angle = TWO_PI / npoints;
-  beginShape();
-  for (let a = 0; a < TWO_PI; a += angle) {
-    let sx = x + cos(a) * radius;
-    let sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
+
+  push()
+  strokeWeight(2)
+  translate(150, 250)
+  rotate(HALF_PI * 3 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(50, 250)
+  rotate(HALF_PI * 4 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  //Second
+  fill(0,163,0)
+  stroke(255,255,0)
+  strokeWeight(2)
+
+  push()
+  strokeWeight(2)
+  translate(250, 150)
+  rotate(HALF_PI * 3 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 150)
+  rotate(HALF_PI * 4 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(250, 250)
+  rotate(HALF_PI * 2 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 250)
+  rotate(HALF_PI - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  angle += 0.003
 }
 
 {{< /p5-global-iframe >}}
 
-creds: (https://openprocessing.org/sketch/691631)
+creds: (https://fractalkitty.com/2021/07/22/coded-optical-illusions/)
 
 ### Explicacion 
 "Esta ilusión hace que el espectador vea un triangulo donde nunca hubo uno. El efecto es causado por contornos ilusorios o del sujeto.
