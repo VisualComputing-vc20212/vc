@@ -9,42 +9,48 @@ Me gusta el fútbol y los videojuegos.
 En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.
 
 
-{{< p5-global-iframe id="breath" width="625" height="625" >}}
- var x;
-var y;
-var nx;
-var ny;
- 
-var col;
-var a;
-var b;
-var c;
+{{< p5-global-iframe id="breath" width="700" height="800" >}}
 
-function setup(){
-  createCanvas(600,600);
-  background(0);
- blendMode(ADD);
+function setup()
+{
+  createCanvas(1300,700);
+  noStroke();
+  cred=color(255,0,0);
+  cblack=color(0,0,0);
+  init=7;
+
+
 }
 
-function draw(){
-  x = random(0,width);
-  y = random(0,height);
-  
-  nx = random(0,width);
-  ny = random(0,height);
-  a= random(0,255);
-  b= random(0,255);
-	c= random(0,255);
-  col = color(a,b,c,50);
-  
-  noFill();
-  stroke(col);
-  
-  line(x,y,nx,ny);
-  
-  
+
+function draw()
+{
+if(init==7)
+     {
+        push();
+      
+        let offset=[0,40,80,40,0,40,80,40,0,40];
+        xc=100;
+        yc=150;
+        let dx=20;
+        background(255);  
+        stroke(cblack);
+        fill(cblack);
+        strokeWeight(10);
+        for(let nl=0;nl<8;nl++)
+          {
+            stroke(cred);
+            line(xc,yc+nl*85,xc+1070,yc+nl*85);            
+            for(let i=0;i<6;i++)
+              {
+                noStroke();
+                rect(xc+i*180+ offset[nl],yc+nl*85-80,85,78);
+              }
+          }           
+        pop();
+      }
 }
 {{< /p5-global-iframe >}}
 
 
-Fuente: https://openprocessing.org/user/190726?view=sketches
+Fuente: https://openprocessing.org/sketch/1238842
