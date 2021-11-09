@@ -10,8 +10,8 @@ Me encanta el deporte, solía entrenar baloncesto pero me toco dejarlo. Actualme
 La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.
 
 
-## The Kanizsa Triangle Illusion
-{{< p5-global-iframe id="breath" width="530" height="530" >}}
+## Dynamic Kanizsa Illusion
+{{< p5-global-iframe id="breath" width="450" height="450" >}}
 let angle = 0
 
 function setup() {
@@ -95,10 +95,16 @@ function draw() {
 
 creds: (https://naziafakhruddin.medium.com/creating-illusions-in-p5-js-dynamic-kanizsa-illusion-part-4-af9fe72c5ec7)
 
-### Explicacion 
-"Esta ilusión hace que el espectador vea un triangulo donde nunca hubo uno. El efecto es causado por contornos ilusorios o del sujeto.
+### Explicacion
 
-Los psicólogos de la Gestalt usan esta ilusión para describir la ley del cierre, una de las leyes de la Gestalt de la organización perceptiva. Según este principio, los objetos que se agrupan tienden a verse como parte de un todo. Tendemos a ignorar los espacios y percibir las líneas de contorno para que la imagen aparezca como un todo cohesivo."
+Con esta ilusion el psicologo italiano Kanizsa nos muestra un ejemplo de terminacion modal de contornos. La terminacion modal se da cuando se perciben ciertos bordes creados por un limite de luminancia, color o textura cuando no existe tal limite. A esto tambien se le ha llamado "Law of clousure" según este principio los objetos que se agrupan tienden a verse como parte de un todo. Tendemos a ignorar los espacios y percibir las líneas de contorno para formar figuras y formas familiares para nosotros.
 
- creds: (https://www.verywellmind.com/optical-illusions-4020333)
+Visto de una manera mas neurocientifica "los grupos de células neuronales ven roturas en las líneas o formas, y si no se les da más información, asumirán que hay una figura delante de las líneas. Los científicos creen que esto sucede porque el cerebro ha sido entrenado para ver la ruptura de las líneas como un objeto que podría representar una amenaza potencial. Con la falta de información adicional, el cerebro yerra por el lado de la seguridad y percibe el espacio como un objeto. El círculo es el objeto más simple y simétrico, por lo que la mente generalmente ve un círculo a menos que se haga un esfuerzo activo para ver una forma alternativa. [1]"
+
+
+
+[1]"The Grid illusion of Spot 06" The Visual Perception Lab. Retrieved December 4, 2007.
+
+
+ creds: (https://www.illusionsindex.org/i/kanizsa-triangle)
 
