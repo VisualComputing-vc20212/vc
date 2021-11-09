@@ -15,32 +15,26 @@ Jugar videojuegos (principalmente competitivos), ver series, aprender idiomas, a
 No poseo experiencia mas alla de el desarrollo de interfaces graficas para aplicaciones web
 
 
-{{< p5-global-iframe id="breath" width="625" height="625" >}}
-var circle = 200;
-var rot;
-var col;
-var freq = 0.000005; 
-var cont = 0;
-var r;
-
-function setup() {
-  createCanvas(600, 600);
-}
+{{< p5-global-iframe id="breath" width="500" height="500" >}}
 
 function draw() {
   background(0);
-  translate(300, 300);
-  rotate(radians(rot));
+  for (let i = 50; i < height; i += 50) {
+    for (let j = 50; j < width; j += 50) { 
+      stroke(150)
+      strokeWeight(10)
+      line(0, i, width, i)
+      line(j, 0, j, height)
+    }
+ }
 
- ellipseMode(RADIUS);
-  for (var i=0; i<500; i ++) {
-    circle= 200 + 50*sin(millis()*freq*i);
-    col=map(circle,150,250,255,60);
-    r=map(circle,150,250,5,2);
-    fill(col,0,74);
-    noStroke();
-    ellipse(circle*cos(i), circle*sin(i),r,r);    
-    rot=rot+0.00005;
+  for (let i = 50; i < width; i += 50) {
+    for (let j = 50; j < height; j += 50) {
+      noStroke()
+      fill(255)
+      ellipse(i, j, 18, 18)
+    }
   }
 }
+
 {{< /p5-global-iframe >}}
