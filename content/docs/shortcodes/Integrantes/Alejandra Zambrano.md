@@ -93,7 +93,7 @@ function draw() {
 
 {{< /p5-global-iframe >}}
 
-creds: (https://fractalkitty.com/2021/07/22/coded-optical-illusions/)
+creds: (https://naziafakhruddin.medium.com/creating-illusions-in-p5-js-dynamic-kanizsa-illusion-part-4-af9fe72c5ec7)
 
 ### Explicacion 
 "Esta ilusión hace que el espectador vea un triangulo donde nunca hubo uno. El efecto es causado por contornos ilusorios o del sujeto.
