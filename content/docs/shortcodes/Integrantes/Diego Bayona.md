@@ -15,26 +15,59 @@ Jugar videojuegos (principalmente competitivos), ver series, aprender idiomas, a
 No poseo experiencia mas alla de el desarrollo de interfaces graficas para aplicaciones web
 
 
-{{< p5-global-iframe id="breath" width="500" height="500" >}}
+{{< p5-global-iframe id="breath" width="600" height="400" >}}
+function setup() {
+  createCanvas(600, 400);
+}
 
 function draw() {
-  background(0);
-  for (let i = 50; i < height; i += 50) {
-    for (let j = 50; j < width; j += 50) { 
-      stroke(150)
-      strokeWeight(10)
-      line(0, i, width, i)
-      line(j, 0, j, height)
-    }
- }
+  background(220);
+  //mapping of mouseX variable and putting in the local       variable'k'.
+  let k = map(mouseX, 0, width, 200, 0)
 
-  for (let i = 50; i < width; i += 50) {
-    for (let j = 50; j < height; j += 50) {
-      noStroke()
-      fill(255)
-      ellipse(i, j, 18, 18)
-    }
-  }
+  //Circle 1
+  noStroke()
+  fill('yellow')
+  ellipse(160, 200, 50, 50)
+
+  //Circle 1 petals colour
+  fill(155, 0, 215, k)
+
+  //upper petals
+  ellipse(110, 120, 90, 90)
+  ellipse(210, 120, 90, 90)
+
+  //lower petals
+  ellipse(110, 280, 90, 90)
+  ellipse(210, 280, 90, 90)
+
+  //sides petals
+  ellipse(60, 200, 90, 90)
+  ellipse(260, 200, 90, 90)
+
+  //Circle 2
+  fill('yellow')
+  ellipse(450, 200, 50, 50)
+
+  //Circle 2 petals color
+  fill(155, 0, 215, k)
+
+  //up and down petals
+  ellipse(450, 154, 25, 25)
+  ellipse(450, 246, 25, 25)
+
+  // side petals
+  ellipse(400, 200, 25, 25)
+  ellipse(500, 200, 25, 25)
+
+  //lower middle
+  ellipse(415, 235, 25, 25)
+  ellipse(485, 235, 25, 25)
+
+  //upper middle
+  ellipse(415, 164, 25, 25)
+  ellipse(485, 164, 25, 25)
+
 }
 
 {{< /p5-global-iframe >}}
