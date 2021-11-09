@@ -16,45 +16,45 @@ La unica experiencia con gráficos es que en primer semestre hice un juego parec
 // https://en.wikipedia.org/wiki/Illusory_contours
 
 // Create an array to hold three points  
-PVector[] pv = new PVector[2]; 
+PVector[] pv = new PVector[3]; 
 
 void setup() {
-	size(800, 800);
-	background(255);
-	rectMode(CENTER);
-	smooth();
-	noLoop();
+  size(800, 800);
+  background(255);
+  rectMode(CENTER);
+  smooth();
+  noLoop();
 }
 void draw() {
-	// Set our points
-	pv[0] = new PVector(120, 190);
-	pv[1] = new PVector(685, 190);
-	pv[2] = new PVector(400, 685);
-	
-	// Create a circle at each point around the triangle
-	strokeWeight(2);	
-	stroke(0,0,0);
-	fill(0);
-	for(int i = 0; i <= 2; i++)
-	{
-		// ellipse(x, y, width, height)  
-		ellipse(pv[i].x, pv[i].y, 200, 200); 
-	} 
-	
-	// Draw a triangle outline
-	strokeWeight(8);	
-	stroke(0,0,0);
-	fill(255);	
-	triangle(400, 20, 685, 530, 110, 530);
+  // Set our points
+  pv[0] = new PVector(120, 190);
+  pv[1] = new PVector(685, 190);
+  pv[2] = new PVector(400, 685);
+  
+  // Create a circle at each point around the triangle
+  strokeWeight(2);  
+  stroke(0,0,0);
+  fill(0);
+  for(int i = 0; i <= 2; i++)
+  {
+    // ellipse(x, y, width, height)  
+    ellipse(pv[i].x, pv[i].y, 200, 200); 
+  } 
+  
+  // Draw a triangle outline
+  strokeWeight(8);  
+  stroke(0,0,0);
+  fill(255);  
+  triangle(400, 20, 685, 530, 110, 530);
 
-	// Draw a white triangle which cuts out the other shapes
-	strokeWeight(0);
-	stroke(255,255,255);
-	fill(255);	 
-	// Initial point of a triangle is rounded by default?
-	strokeJoin(MITER);
-	triangle(120, 190, 685, 190, 400, 685);
-}	
+  // Draw a white triangle which cuts out the other shapes
+  strokeWeight(0);
+  stroke(255,255,255);
+  fill(255);   
+  // Initial point of a triangle is rounded by default?
+  strokeJoin(MITER);
+  triangle(120, 190, 685, 190, 400, 685);
+}  
 
 {{< /p5-global-iframe >}}
 
