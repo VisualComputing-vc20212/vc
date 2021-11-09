@@ -9,87 +9,47 @@ Me encanta el deporte, solía entrenar baloncesto pero me toco dejarlo. Actualme
 ### Experiencia con graficos
 La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.
 
+
+## Hermann Grid Illusion
 {{< p5-global-iframe id="breath" width="530" height="530" >}}
-var constellation = [];
-var n;
-var d;
-var a;
+// Keith O'Hara <kohara@bard.edu>
+// Feb 10 2010
+// CMSC 117
+//
+// Hermann grid illusion
+// 
 
-function setup() {
-  createCanvas(500, 500);
-  pixelDensity(1); // Set 1 because it's too slow on firefox
-  //pixelDensity(displayDensity());
-  n = 200;
-
-  for (var i = 0; i <= n; i++) {
-    constellation.push(new star());
-  }
-  strokeWeight(.75);
-	a=random(100,255)
-  stroke(a,255,255);
+void setup()
+{
+  size(255, 255);
+  smooth();
+  fill(64);
+  noStroke();
 }
 
-function	mousePressed(){
-	a=random(10,255)
-  stroke(a,255,255);
-	}
-
-function draw() {
-
-  background('#000000');
-
-  for (var i = 0; i < constellation.length; i++) {
-    constellation[i].update();
-    for (var j = 0; j < constellation.length; j++) {
-      if (i > j) { // "if (i > j)" => to check one time distance between two stars
-        d = constellation[i].loc.dist(constellation[j].loc); // Distance between two stars
-        if (d <= width / 10) { // if d is less than width/10 px, we draw a line between the two stars
-          line(constellation[i].loc.x, constellation[i].loc.y, constellation[j].loc.x, constellation[j].loc.y)
-        }
-      }
+void draw()
+{
+  background(196);
+  int stepSize = 1 + mouseX;
+  for (int x = 0; x < 255; x = x + stepSize)
+  {
+    for (int y = 0; y < 255; y = y + stepSize )
+    {
+      float boxsize = stepSize*(mouseY/float(height));
+      rect(x, y, boxsize, boxsize);
     }
   }
-
 }
 
-function star() {
-
-  this.a = random(5 * TAU); // "5*TAU" => render will be more homogeneous
-  this.r = random(width * .2, width * .25); // first position will looks like a donut
-  this.loc = createVector(width / 2 + sin(this.a) * this.r, height / 2 + cos(this.a) * this.r);
-  this.speed = createVector();
-  this.speed = p5.Vector.random2D();
-  //this.speed.random2D();
-  this.bam = createVector();
-  this.m;
-
-
-  this.update = function() {
-      this.bam = p5.Vector.random2D(); // movement of star will be a bit erractic
-      //this.bam.random2D();
-      this.bam.mult(0.45);
-      this.speed.add(this.bam);
-      // speed is done according distance between loc and the mouse :
-      this.m = constrain(map(dist(this.loc.x, this.loc.y, mouseX, mouseY), 0, width, 8, .05), .05, 8); // constrain => avoid returning "not a number"
-      this.speed.normalize().mult(this.m);
-
-      // No colision detection, instead loc is out of bound
-      // it reappears on the opposite side :
-      if (dist(this.loc.x, this.loc.y, width / 2, height / 2) > (width / 2) * 0.98) {
-        if (this.loc.x < width / 2) {
-          this.loc.x = width - this.loc.x - 4; // "-4" => avoid blinking stuff
-        } else if (this.loc.x > width / 2) {
-          this.loc.x = width - this.loc.x + 4; // "+4"  => avoid blinking stuff
-        }
-        if (this.loc.y < height / 2) {
-          this.loc.y = width - this.loc.y - 4;
-        } else if (this.loc.x > height / 2) {
-          this.loc.y = width - this.loc.y + 4;
-        }
-      }
-      this.loc = this.loc.add(this.speed);
-    } // End of update()
-} // End of class
 {{< /p5-global-iframe >}}
 
-creds: (https://openprocessing.org/sketch/766691)
+creds: (https://openprocessing.org/sketch/7561/#)
+
+### Explicacion 
+Cuando el espectador mira la cuadrícula, los puntos blancos y el centro de cada "corredor" parecen cambiar entre el blanco y el gris.
+Los investigadores como Baumgartner han utilizado tradicionalmente lo que se conoce como inhibición lateral para explicar por qué las personas ven estas áreas grises. Las neuronas que transmiten señales desde el ojo al cerebro, conocidas como "células ganglionares de la retina" le corresponde una pequeña región de la retina llamada campo receptivo, donde los conos y bastones fotorreceptores pueden desencadenar una respuesta eléctrica en esa célula. Los campos receptivos de las células ganglionares adyacentes pueden superponerse.
+
+ Sin embargo, existe evidencia que sugiere que esta explicación probablemente sea inexacta. El hecho de que la ilusión no depende del tamaño, se puede ver con la inversión del contraste y se puede negar distorsionando ligeramente las líneas, se han citado como razones por las que la teoría clásica está equivocada. Una posible explicación que se ha propuesto se conoce como la teoría de la celda simple.
+
+ creds: (https://www.verywellmind.com/optical-illusions-4020333)
+
