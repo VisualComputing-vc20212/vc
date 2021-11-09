@@ -10,46 +10,60 @@ Me encanta el deporte, solía entrenar baloncesto pero me toco dejarlo. Actualme
 La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.
 
 
-## Hermann Grid Illusion
+## The Kanizsa Triangle Illusion
 {{< p5-global-iframe id="breath" width="530" height="530" >}}
-// Keith O'Hara <kohara@bard.edu>
-// Feb 10 2010
-// CMSC 117
-//
-// Hermann grid illusion
-// 
+// Read about Illusory contours and the Kanizsa's Triangle on Wikipedia
+// https://en.wikipedia.org/wiki/Illusory_contours
 
-void setup()
-{
-  size(255, 255);
-  smooth();
-  fill(64);
-  noStroke();
-}
+// Create an array to hold three points  
+PVector[] pv = new PVector[2]; 
 
-void draw()
-{
-  background(196);
-  int stepSize = 1 + mouseX;
-  for (int x = 0; x < 255; x = x + stepSize)
-  {
-    for (int y = 0; y < 255; y = y + stepSize )
-    {
-      float boxsize = stepSize*(mouseY/float(height));
-      rect(x, y, boxsize, boxsize);
-    }
-  }
+void setup() {
+	size(800, 800);
+	background(255);
+	rectMode(CENTER);
+	smooth();
+	noLoop();
 }
+void draw() {
+	// Set our points
+	pv[0] = new PVector(120, 190);
+	pv[1] = new PVector(685, 190);
+	pv[2] = new PVector(400, 685);
+	
+	// Create a circle at each point around the triangle
+	strokeWeight(2);	
+	stroke(0,0,0);
+	fill(0);
+	for(int i = 0; i <= 2; i++)
+	{
+		// ellipse(x, y, width, height)  
+		ellipse(pv[i].x, pv[i].y, 200, 200); 
+	} 
+	
+	// Draw a triangle outline
+	strokeWeight(8);	
+	stroke(0,0,0);
+	fill(255);	
+	triangle(400, 20, 685, 530, 110, 530);
+
+	// Draw a white triangle which cuts out the other shapes
+	strokeWeight(0);
+	stroke(255,255,255);
+	fill(255);	 
+	// Initial point of a triangle is rounded by default?
+	strokeJoin(MITER);
+	triangle(120, 190, 685, 190, 400, 685);
+}	
 
 {{< /p5-global-iframe >}}
 
-creds: (https://openprocessing.org/sketch/7561/#)
+creds: (https://openprocessing.org/sketch/691631)
 
 ### Explicacion 
-Cuando el espectador mira la cuadrícula, los puntos blancos y el centro de cada "corredor" parecen cambiar entre el blanco y el gris.
-Los investigadores como Baumgartner han utilizado tradicionalmente lo que se conoce como inhibición lateral para explicar por qué las personas ven estas áreas grises. Las neuronas que transmiten señales desde el ojo al cerebro, conocidas como "células ganglionares de la retina" le corresponde una pequeña región de la retina llamada campo receptivo, donde los conos y bastones fotorreceptores pueden desencadenar una respuesta eléctrica en esa célula. Los campos receptivos de las células ganglionares adyacentes pueden superponerse.
+"Esta ilusión hace que el espectador vea un triangulo donde nunca hubo uno. El efecto es causado por contornos ilusorios o del sujeto.
 
- Sin embargo, existe evidencia que sugiere que esta explicación probablemente sea inexacta. El hecho de que la ilusión no depende del tamaño, se puede ver con la inversión del contraste y se puede negar distorsionando ligeramente las líneas, se han citado como razones por las que la teoría clásica está equivocada. Una posible explicación que se ha propuesto se conoce como la teoría de la celda simple.
+Los psicólogos de la Gestalt usan esta ilusión para describir la ley del cierre, una de las leyes de la Gestalt de la organización perceptiva. Según este principio, los objetos que se agrupan tienden a verse como parte de un todo. Tendemos a ignorar los espacios y percibir las líneas de contorno para que la imagen aparezca como un todo cohesivo."
 
  creds: (https://www.verywellmind.com/optical-illusions-4020333)
 
