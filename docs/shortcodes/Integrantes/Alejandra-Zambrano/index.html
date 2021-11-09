@@ -10,13 +10,13 @@ En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he he
 En que me gustaría enfocarme #  Me apasiona el aprendizaje de maquina, ya he hecho diferentes cursos de coursera relacionados con el tema y me enamore.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Alejandra-Zambrano/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-09T09:13:30-05:00">
+<meta property="article:modified_time" content="2021-11-09T10:01:58-05:00">
 <title>Alejandra Zambrano | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.af70eec9fcb402d5cfc2b060dce61919e2b6e036113a6a2dcc947b01f9175ed5.js integrity="sha256-r3Duyfy0AtXPwrBg3OYZGeK24DYROmotzJR7AfkXXtU=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.1d42d75ea4240044b297975276502f997cb5a8b6fab2bf29c61803b30e0ff986.js integrity="sha256-HULXXqQkAESyl5dSdlAvmXy1qLb6sr8pxhgDsw4P+YY=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -189,49 +189,41 @@ The Kanizsa Triangle Illusion
             
             <script>
               
-// Read about Illusory contours and the Kanizsa's Triangle on Wikipedia
-// https://en.wikipedia.org/wiki/Illusory_contours
-
-// Create an array to hold three points  
-PVector[] pv = new PVector[3]; 
-
-void setup() {
-  size(800, 800);
-  background(255);
-  rectMode(CENTER);
-  smooth();
-  noLoop();
+function setup() {
+  createCanvas(400, 400);//create  the canvas
 }
-void draw() {
-  // Set our points
-  pv[0] = new PVector(120, 190);
-  pv[1] = new PVector(685, 190);
-  pv[2] = new PVector(400, 685);
-  
-  // Create a circle at each point around the triangle
-  strokeWeight(2);  
-  stroke(0,0,0);
-  fill(0);
-  for(int i = 0; i <= 2; i++)
-  {
-    // ellipse(x, y, width, height)  
-    ellipse(pv[i].x, pv[i].y, 200, 200); 
-  } 
-  
-  // Draw a triangle outline
-  strokeWeight(8);  
-  stroke(0,0,0);
-  fill(255);  
-  triangle(400, 20, 685, 530, 110, 530);
-
-  // Draw a white triangle which cuts out the other shapes
-  strokeWeight(0);
-  stroke(255,255,255);
-  fill(255);   
-  // Initial point of a triangle is rounded by default?
-  strokeJoin(MITER);
-  triangle(120, 190, 685, 190, 400, 685);
-}  
+function draw() {
+  translate(200,200)
+  strokeWeight(3)
+  stroke(0);
+  noFill();
+  push()
+  rotate(PI/6)
+  polygon(0,0,100,3)
+  pop()
+  noStroke()
+  fill(0)
+  circle(100*cos(-5*PI/6),100*sin(-5*PI/6),50)
+  circle(100*cos(-PI/6),100*sin(-PI/6),50)
+  circle(100*cos(3*PI/6),100*sin(3*PI/6),50)
+  fill(255);
+  push()
+  rotate(-PI/6)
+  polygon(0,0,100,3)
+  pop()
+  noLoop()
+}
+//p5js polygon function from p5js.org
+function polygon(x, y, radius, npoints) {
+  let angle = TWO_PI / npoints;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius;
+    let sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
 
 
             </script>
@@ -251,7 +243,7 @@ Explicacion
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/039528dfdb6cd5e9b322005d146fd3f21af8a342 title="Last modified by alzambranolu13 | November 9, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/6e1ea4184c12bdc8b614fbd240c08a621feda49c title="Last modified by alzambranolu13 | November 9, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 9, 2021</span>
 </a>
