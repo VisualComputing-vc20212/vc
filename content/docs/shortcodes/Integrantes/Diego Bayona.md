@@ -14,7 +14,7 @@ Jugar videojuegos (principalmente competitivos), ver series, aprender idiomas, a
 
 No poseo experiencia mas alla de el desarrollo de interfaces graficas para aplicaciones web
 
-
+## Ebbinghaus illusion
 {{< p5-global-iframe id="breath" width="600" height="400" >}}
 function setup() {
   createCanvas(600, 400);
@@ -71,3 +71,7 @@ function draw() {
 }
 
 {{< /p5-global-iframe >}}
+
+### Explicacion
+
+Nombrada por su descubridor, el psicologo aleman Hermann Ebbinghaus, esta ilusion juega un papel fundamental en el debate sobre la existencia de caminos separados en el cerebro para la percepción y la acción. La razon es porque la ilusión distorsiona la percepcion del tamaño pero no la acción, pero multiples estudios se han hecho debatiendo como esta ilusion afecta el cerebro. La clave es el contraste de tamaños y como el cerebro relaciona estos con como percibe la ilusión, y atraves de los años se han hecho multiples versiones de esta ilusion con tal de probar sus efectos, lo mas reciente fue hecho por el italiano Gianni A. Sarcone que contradijo la ilusion haciendo la suya propia, demostrando que no siempre la percepcion se ve alterada por el contraste de tamaños.
