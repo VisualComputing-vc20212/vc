@@ -9,87 +9,102 @@ Me encanta el deporte, solía entrenar baloncesto pero me toco dejarlo. Actualme
 ### Experiencia con graficos
 La unica experiencia con gráficos es que en primer semestre hice un juego parecido a Rapid Ball con Processing, pero la verdad ya no me acuerdo mucho del tema. Estoy emocionada de aprender mas del tema.
 
-{{< p5-global-iframe id="breath" width="530" height="530" >}}
-var constellation = [];
-var n;
-var d;
-var a;
+
+## Dynamic Kanizsa Illusion
+{{< p5-global-iframe id="breath" width="450" height="450" >}}
+let angle = 0
 
 function setup() {
-  createCanvas(500, 500);
-  pixelDensity(1); // Set 1 because it's too slow on firefox
-  //pixelDensity(displayDensity());
-  n = 200;
-
-  for (var i = 0; i <= n; i++) {
-    constellation.push(new star());
-  }
-  strokeWeight(.75);
-	a=random(100,255)
-  stroke(a,255,255);
+  createCanvas(400, 400);
 }
-
-function	mousePressed(){
-	a=random(10,255)
-  stroke(a,255,255);
-	}
 
 function draw() {
+  background(220);
 
-  background('#000000');
+  //First
+  fill(255, 0, 0)
+  stroke(255,255,0)
+  strokeWeight(2)
 
-  for (var i = 0; i < constellation.length; i++) {
-    constellation[i].update();
-    for (var j = 0; j < constellation.length; j++) {
-      if (i > j) { // "if (i > j)" => to check one time distance between two stars
-        d = constellation[i].loc.dist(constellation[j].loc); // Distance between two stars
-        if (d <= width / 10) { // if d is less than width/10 px, we draw a line between the two stars
-          line(constellation[i].loc.x, constellation[i].loc.y, constellation[j].loc.x, constellation[j].loc.y)
-        }
-      }
-    }
-  }
+  push()
+  translate(50, 150)
+  rotate(HALF_PI + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
 
+  push()
+  strokeWeight(2)
+  translate(150, 150)
+  rotate(HALF_PI * 2 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(150, 250)
+  rotate(HALF_PI * 3 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(50, 250)
+  rotate(HALF_PI * 4 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  //Second
+  fill(0,163,0)
+  stroke(255,255,0)
+  strokeWeight(2)
+
+  push()
+  strokeWeight(2)
+  translate(250, 150)
+  rotate(HALF_PI * 3 - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 150)
+  rotate(HALF_PI * 4 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(250, 250)
+  rotate(HALF_PI * 2 + angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+  push()
+  strokeWeight(2)
+  translate(350, 250)
+  rotate(HALF_PI - angle)
+  arc(0, 0, 80, 80, PI, HALF_PI)
+  pop()
+
+
+  angle += 0.003
 }
 
-function star() {
-
-  this.a = random(5 * TAU); // "5*TAU" => render will be more homogeneous
-  this.r = random(width * .2, width * .25); // first position will looks like a donut
-  this.loc = createVector(width / 2 + sin(this.a) * this.r, height / 2 + cos(this.a) * this.r);
-  this.speed = createVector();
-  this.speed = p5.Vector.random2D();
-  //this.speed.random2D();
-  this.bam = createVector();
-  this.m;
-
-
-  this.update = function() {
-      this.bam = p5.Vector.random2D(); // movement of star will be a bit erractic
-      //this.bam.random2D();
-      this.bam.mult(0.45);
-      this.speed.add(this.bam);
-      // speed is done according distance between loc and the mouse :
-      this.m = constrain(map(dist(this.loc.x, this.loc.y, mouseX, mouseY), 0, width, 8, .05), .05, 8); // constrain => avoid returning "not a number"
-      this.speed.normalize().mult(this.m);
-
-      // No colision detection, instead loc is out of bound
-      // it reappears on the opposite side :
-      if (dist(this.loc.x, this.loc.y, width / 2, height / 2) > (width / 2) * 0.98) {
-        if (this.loc.x < width / 2) {
-          this.loc.x = width - this.loc.x - 4; // "-4" => avoid blinking stuff
-        } else if (this.loc.x > width / 2) {
-          this.loc.x = width - this.loc.x + 4; // "+4"  => avoid blinking stuff
-        }
-        if (this.loc.y < height / 2) {
-          this.loc.y = width - this.loc.y - 4;
-        } else if (this.loc.x > height / 2) {
-          this.loc.y = width - this.loc.y + 4;
-        }
-      }
-      this.loc = this.loc.add(this.speed);
-    } // End of update()
-} // End of class
 {{< /p5-global-iframe >}}
 
-creds: (https://openprocessing.org/sketch/766691)
+creds: (https://naziafakhruddin.medium.com/creating-illusions-in-p5-js-dynamic-kanizsa-illusion-part-4-af9fe72c5ec7)
+
+### Explicacion
+
+Con esta ilusion el psicologo italiano Kanizsa nos muestra un ejemplo de terminacion modal de contornos. La terminacion modal se da cuando se perciben ciertos bordes creados por un limite de luminancia, color o textura cuando no existe tal limite. A esto tambien se le ha llamado "Law of clousure" según este principio los objetos que se agrupan tienden a verse como parte de un todo. Tendemos a ignorar los espacios y percibir las líneas de contorno para formar figuras y formas familiares para nosotros.
+
+Visto de una manera mas neurocientifica "los grupos de células neuronales ven roturas en las líneas o formas, y si no se les da más información, asumirán que hay una figura delante de las líneas. Los científicos creen que esto sucede porque el cerebro ha sido entrenado para ver la ruptura de las líneas como un objeto que podría representar una amenaza potencial. Con la falta de información adicional, el cerebro yerra por el lado de la seguridad y percibe el espacio como un objeto. El círculo es el objeto más simple y simétrico, por lo que la mente generalmente ve un círculo a menos que se haga un esfuerzo activo para ver una forma alternativa. [1]"
+
+
+
+[1]"The Grid illusion of Spot 06" The Visual Perception Lab. Retrieved December 4, 2007.
+
+
+ creds: (https://www.illusionsindex.org/i/kanizsa-triangle)
+
