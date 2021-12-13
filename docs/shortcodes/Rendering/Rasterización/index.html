@@ -2,19 +2,20 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Rasterisation #  #       let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.height; y += tileSize) { for (let x = 0; x < img.">
+<meta name=description content="Rasterización #  Explicación #  Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve&mldr;
+     let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Rasterisation #  #       let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.height; y += tileSize) { for (let x = 0; x < img.">
+<meta property="og:description" content="Rasterización #  Explicación #  Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve&mldr;
+     let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Antialiasing/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-13T00:57:25-05:00">
-<title>Antialiasing | Visual Computing</title>
+<meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Rasterizaci%C3%B3n/"><meta property="article:section" content="docs">
+<title>Rasterización | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.822ae542d1208d3970962371a74faaef43511db18471f081d1f7c6a2b04d4e0e.js integrity="sha256-girlQtEgjTlwliNxp0+q70NRHbGEcfCB0ffGorBNTg4=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.3f487b463528a729f2577dfefba823993739b0173b25cd838b78289db3f2a751.js integrity="sha256-P0h7RjUopynyV33++6gjmTc5sBc7Jc2Di3gonbPyp1E=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -69,10 +70,10 @@
 </label>
 <ul>
 <li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Antialiasing/ class=active>Antialiasing</a>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Painters-Algorithm/>Painters Algorithm</a>
 </li>
 <li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Painters-Algorithm/>Painters Algorithm</a>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Rasterizaci%C3%B3n/ class=active>Rasterización</a>
 </li>
 </ul>
 </li>
@@ -89,7 +90,7 @@
 <label for=menu-control>
 <img src=/vc/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>Antialiasing</strong>
+<strong>Rasterización</strong>
 <label for=toc-control>
 <img src=/vc/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
@@ -97,11 +98,10 @@
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#rasterisation>Rasterisation</a>
+<li><a href=#rasterización>Rasterización</a>
 <ul>
 <li>
 <ul>
-<li><a href=#heading></a></li>
 <li><a href=#explicación>Explicación</a></li>
 </ul>
 </li>
@@ -111,13 +111,15 @@
 </nav>
 </aside>
 </header>
-<article class=markdown><h1 id=rasterisation>
-Rasterisation
-<a class=anchor href=#rasterisation>#</a>
+<article class=markdown><h1 id=rasterización>
+Rasterización
+<a class=anchor href=#rasterizaci%c3%b3n>#</a>
 </h1>
-<h3 id=heading>
-<a class=anchor href=#heading>#</a>
+<h3 id=explicación>
+Explicación
+<a class=anchor href=#explicaci%c3%b3n>#</a>
 </h3>
+<p>Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve&mldr;</p>
 <iframe id=breath style=width:715px;height:725px srcdoc='
         <!DOCTYPE html>
         <html>
@@ -172,19 +174,9 @@ function draw() {
           </body>
         </html>
       '></iframe>
-<h3 id=explicación>
-Explicación
-<a class=anchor href=#explicaci%c3%b3n>#</a>
-</h3>
-<p>Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente.</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/cb713ddca08bcb53884434d463a7c2381b6fac46 title="Last modified by lucasps16 | December 13, 2021" target=_blank rel=noopener>
-<img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 13, 2021</span>
-</a>
-</div>
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
@@ -196,11 +188,10 @@ Explicación
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#rasterisation>Rasterisation</a>
+<li><a href=#rasterización>Rasterización</a>
 <ul>
 <li>
 <ul>
-<li><a href=#heading></a></li>
 <li><a href=#explicación>Explicación</a></li>
 </ul>
 </li>
