@@ -2,25 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Antialiasing #  Quien soy #  Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia
-En que me gustaría enfocarme #  No lo sé aún, quizas en la rama administrativa de la carrera.
-Hobbies #  Me gusta el fútbol y los videojuegos.
-Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.">
+<meta name=description content="Rasterisation #  #       let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.height; y += tileSize) { for (let x = 0; x < img.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Antialiasing #  Quien soy #  Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia
-En que me gustaría enfocarme #  No lo sé aún, quizas en la rama administrativa de la carrera.
-Hobbies #  Me gusta el fútbol y los videojuegos.
-Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.">
+<meta property="og:description" content="Rasterisation #  #       let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.height; y += tileSize) { for (let x = 0; x < img.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Antialiasing/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T23:40:17-05:00">
+<meta property="article:modified_time" content="2021-12-13T00:57:25-05:00">
 <title>Antialiasing | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.f2f8d6386499f1b92965dbb8947f01f015067a68ca311f691314d2411b9d9434.js integrity="sha256-8vjWOGSZ8bkpZdu4lH8B8BUGemjKMR9pExTSQRudlDQ=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.28c34860ce1319bbbea43627bb50d8a8b19c7cf713904f71e353f3ba84700074.js integrity="sha256-KMNIYM4TGbu+pDYnu1DYqLGcfPcTkE9x41PzuoRwAHQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -63,6 +57,9 @@ Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con est
 <li>
 <a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Lucas-Pe%C3%B1a/>Lucas Peña</a>
 </li>
+<li>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Test/>Test</a>
+</li>
 </ul>
 </li>
 <li>
@@ -100,15 +97,12 @@ Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con est
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#antialiasing>Antialiasing</a>
+<li><a href=#rasterisation>Rasterisation</a>
 <ul>
 <li>
 <ul>
-<li><a href=#quien-soy>Quien soy</a></li>
-<li><a href=#en-que-me-gustaría-enfocarme>En que me gustaría enfocarme</a></li>
-<li><a href=#hobbies>Hobbies</a></li>
-<li><a href=#experiencia-con-graficos>Experiencia con graficos</a></li>
-<li><a href=#ilusión-de-la-pared-de-la-cafetería>Ilusión de la pared de la cafetería</a></li>
+<li><a href=#heading></a></li>
+<li><a href=#explicación>Explicación</a></li>
 </ul>
 </li>
 </ul>
@@ -117,31 +111,14 @@ Experiencia con graficos #  En asignaturas pasadas hemos intentado jugar con est
 </nav>
 </aside>
 </header>
-<article class=markdown><h1 id=antialiasing>
-Antialiasing
-<a class=anchor href=#antialiasing>#</a>
+<article class=markdown><h1 id=rasterisation>
+Rasterisation
+<a class=anchor href=#rasterisation>#</a>
 </h1>
-<h3 id=quien-soy>
-Quien soy
-<a class=anchor href=#quien-soy>#</a>
+<h3 id=heading>
+<a class=anchor href=#heading>#</a>
 </h3>
-<p>Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia</p>
-<h3 id=en-que-me-gustaría-enfocarme>
-En que me gustaría enfocarme
-<a class=anchor href=#en-que-me-gustar%c3%ada-enfocarme>#</a>
-</h3>
-<p>No lo sé aún, quizas en la rama administrativa de la carrera.</p>
-<h3 id=hobbies>
-Hobbies
-<a class=anchor href=#hobbies>#</a>
-</h3>
-<p>Me gusta el fútbol y los videojuegos.</p>
-<h3 id=experiencia-con-graficos>
-Experiencia con graficos
-<a class=anchor href=#experiencia-con-graficos>#</a>
-</h3>
-<p>En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.</p>
-<iframe id=breath style=width:700px;height:800px srcdoc="
+<iframe id=breath style=width:715px;height:725px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -155,44 +132,38 @@ Experiencia con graficos
             <script>
               
 
-function setup()
-{
-  createCanvas(1300,700);
-  noStroke();
-  cred=color(255,0,0);
-  cblack=color(0,0,0);
-  init=7;
+let img;
 
-
+function preload(){
+  img = loadImage(&#39;https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg&#39;);
 }
 
+function setup() {
+  BG = color("#f1f1f1");   
+  FG = color("#111111");
+  createCanvas(700, 700);
+  img.resize(700, 700);
+}
 
-function draw()
-{
-if(init==7)
-     {
-        push();
-      
-        let offset=[0,40,80,40,0,40,80,40,0,40];
-        xc=100;
-        yc=150;
-        let dx=20;
-        background(255);  
-        stroke(cblack);
-        fill(cblack);
-        strokeWeight(10);
-        for(let nl=0;nl<8;nl++)
-          {
-            stroke(cred);
-            line(xc,yc+nl*85,xc+1070,yc+nl*85);            
-            for(let i=0;i<6;i++)
-              {
-                noStroke();
-                rect(xc+i*180+ offset[nl],yc+nl*85-80,85,78);
-              }
-          }           
-        pop();
-      }
+function draw() {
+
+  background(BG);
+  fill(FG);
+  noStroke();
+  let ratio = float(height)/float(width);
+  let tilesX = map(mouseX, 0, width, 10, 100);
+  let tilesY = ratio * tilesX;
+  let tileSize = width / tilesX;
+  for (let y = 0; y < img.height; y += tileSize) {
+    for (let x = 0; x < img.width; x += tileSize) {
+      let c = img.get(x, y);
+      let b = map(brightness(c), 0, 255, 1, 0);
+      push();
+      translate(x, y);
+      rect(0, 0, b * tileSize, b * tileSize);
+      pop();
+    }
+  }
 }
 
             </script>
@@ -200,20 +171,16 @@ if(init==7)
           <body>
           </body>
         </html>
-      "></iframe>
-<p>Fuente: <a href=https://openprocessing.org/sketch/1238842>https://openprocessing.org/sketch/1238842</a></p>
-<h3 id=ilusión-de-la-pared-de-la-cafetería>
-Ilusión de la pared de la cafetería
-<a class=anchor href=#ilusi%c3%b3n-de-la-pared-de-la-cafeter%c3%ada>#</a>
+      '></iframe>
+<h3 id=explicación>
+Explicación
+<a class=anchor href=#explicaci%c3%b3n>#</a>
 </h3>
-<p>La ilusión de la pared de la cafetería es un tipo de ilusión óptico-geométrica, en la que líneas rectas paralelas que dividien líneas entre filas formadas por baldosas blancas y negras alternas y escalonadas, aparentan estar inclinadas.</p>
-<p>En la construcción de la ilusión óptica, a menudo cada &ldquo;baldosa&rdquo; está rodeado por una capa de &ldquo;mortero&rdquo; de un tono intermedio entre los colores oscuros y claros.</p>
-<p>En el primer intento de su deconstrucción, la ilusión fue atribuida en gran parte al fenómeno de la irradiación, y a la dispersión de la luz entre zonas oscuras y zonas brillantes en la imagen retinal. El efecto desaparece cuando el blanco y el negro son reemplazados por colores diferentes, pero del mismo brillo.​ Pero un componente residual de la ilusión permanece incluso cuando se eliminan los factores óptico y retinal. Las polaridades de contraste parecen ser el factor que determina el aspecto inclinado de las líneas horizontales.</p>
-<p>Tomado de: <a href=https://es.wikipedia.org/wiki/Ilusi%C3%B3n_de_la_pared_de_la_cafeter%C3%ADa>https://es.wikipedia.org/wiki/Ilusi%C3%B3n_de_la_pared_de_la_cafeter%C3%ADa</a></p>
+<p>Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente.</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/4217029df367fb217437cc8fe137a5eaa8563346 title="Last modified by Andres Ardila | December 13, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/cb713ddca08bcb53884434d463a7c2381b6fac46 title="Last modified by lucasps16 | December 13, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>December 13, 2021</span>
 </a>
@@ -229,15 +196,12 @@ Ilusión de la pared de la cafetería
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#antialiasing>Antialiasing</a>
+<li><a href=#rasterisation>Rasterisation</a>
 <ul>
 <li>
 <ul>
-<li><a href=#quien-soy>Quien soy</a></li>
-<li><a href=#en-que-me-gustaría-enfocarme>En que me gustaría enfocarme</a></li>
-<li><a href=#hobbies>Hobbies</a></li>
-<li><a href=#experiencia-con-graficos>Experiencia con graficos</a></li>
-<li><a href=#ilusión-de-la-pared-de-la-cafetería>Ilusión de la pared de la cafetería</a></li>
+<li><a href=#heading></a></li>
+<li><a href=#explicación>Explicación</a></li>
 </ul>
 </li>
 </ul>

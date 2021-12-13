@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Rendering #    Antialiasing  Antialiasing # Quien soy # Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia En que me gustaría enfocarme # No lo sé aún, quizas en la rama administrativa de la carrera. Hobbies # Me gusta el fútbol y los videojuegos. Experiencia con graficos # En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.">
+<meta name=description content="Rendering #    Antialiasing  Rasterisation # # let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color(&#34;#f1f1f1&#34;); FG = color(&#34;#111111&#34;); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y < img.height; y += tileSize) { for (let x = 0; x < img.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
 <meta property="og:description" content>
@@ -13,7 +13,7 @@
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.f2f8d6386499f1b92965dbb8947f01f015067a68ca311f691314d2411b9d9434.js integrity="sha256-8vjWOGSZ8bkpZdu4lH8B8BUGemjKMR9pExTSQRudlDQ=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.28c34860ce1319bbbea43627bb50d8a8b19c7cf713904f71e353f3ba84700074.js integrity="sha256-KMNIYM4TGbu+pDYnu1DYqLGcfPcTkE9x41PzuoRwAHQ=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/index.xml title="Visual Computing">
 </head>
 <body dir=ltr>
@@ -56,6 +56,9 @@
 </li>
 <li>
 <a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Lucas-Pe%C3%B1a/>Lucas Peña</a>
+</li>
+<li>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Integrantes/Test/>Test</a>
 </li>
 </ul>
 </li>
@@ -108,10 +111,7 @@ Rendering
 <a href=/vc/docs/shortcodes/Rendering/Antialiasing/>Antialiasing</a>
 </dt>
 <dd class=markdown-inner>
-Antialiasing # Quien soy # Soy estudiante de 9no semestre de Ingeniería de Sistemas de la Universidad Nacional de Colombia. Tengo 23 años y soy de Bogotá, Colombia
-En que me gustaría enfocarme # No lo sé aún, quizas en la rama administrativa de la carrera.
-Hobbies # Me gusta el fútbol y los videojuegos.
-Experiencia con graficos # En asignaturas pasadas hemos intentado jugar con estilos css y en un pasado con interfaces gráficas de Java.
+Rasterisation # # let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color("#f1f1f1"); FG = color("#111111"); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y &lt; img.height; y += tileSize) { for (let x = 0; x &lt; img.
 </dd>
 <dt>
 <a href=/vc/docs/shortcodes/Rendering/Painters-Algorithm/>Painters Algorithm</a>
