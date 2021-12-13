@@ -1,7 +1,6 @@
-# Rasterisation
-### 
+##TEST
 
-{{< p5-global-iframe id="breath" width="715" height="725" >}}
+{{< p5-global-iframe id="breath" width="700" height="700" >}}
 
 let img;
 
@@ -39,5 +38,4 @@ function draw() {
 {{< /p5-global-iframe >}}
 
 
-### Explicación
-Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. 
+
