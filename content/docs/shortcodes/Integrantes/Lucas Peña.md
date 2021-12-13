@@ -134,3 +134,16 @@ function mousePressed() {
 
   
 {{< /p5-global-iframe >}}
+
+
+### Explicación
+La ilusión del tablero protuberante se le atribuye a Akiyoshi Kitaoka. Pareciera que el  tablero tiene un tipo de relieve curvo.
+
+Se piensa que esto sucede ya que los puntos no se tocan los bordes de los cuadrados, se especula que el cerebro interpreta el espacio entre los puntos y los bordes como líneas, esto hace que ya no percibamos los ángulos como rectos, sino como agudos u obtusos.
+
+El efecto se hace más fuerte entre más pequeño sea el tablero, entonces si se alejan de la pantalla parecera que el tablero se empieza a curvar.
+
+
+### Aplicación
+Este efecto visual puede ser utilizado en publicidad para llamar la atención de las personas y también puede tener una aplicación en videojuegos.
+
