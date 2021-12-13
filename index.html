@@ -1,12 +1,9 @@
 <!doctype html><html lang=en dir=ltr>
 <head>
-<meta name=generator content="Hugo 0.89.2">
+<meta name=generator content="Hugo 0.90.1">
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Visual Computing Template #  Welcome to the UN / DISI visual computing course template site.
-Goal #  To study the process of creation and manipulation of a digital image of a modern visual application, using current hardware.
-Methodology #  Active-learning using free-software to develop:
- Slides. nub and p5.tree. p5.quadrille.js.  Grading #  Workshops blog posts-like reports produced with gohugo and p5.js and having a basic research structure:">
+<meta name=description content="Visual Computing #  Running Hugo #  $cd vc $git submodule update --init --recursive $hugo server -D --disableFastRender ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Introduction">
 <meta property="og:description" content>
@@ -17,7 +14,7 @@ Methodology #  Active-learning using free-software to develop:
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.d07b5681972c75f2b517776168fcbf81a6cee30433a6be7caa40c857c8bf1fcb.js integrity="sha256-0HtWgZcsdfK1F3dhaPy/gabO4wQzpr58qkDIV8i/H8s=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.f2f8d6386499f1b92965dbb8947f01f015067a68ca311f691314d2411b9d9434.js integrity="sha256-8vjWOGSZ8bkpZdu4lH8B8BUGemjKMR9pExTSQRudlDQ=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://visualcomputing-vc20212.github.io/vc/index.xml title="Visual Computing">
 </head>
 <body dir=ltr>
@@ -40,21 +37,6 @@ Methodology #  Active-learning using free-software to develop:
 <li class=book-section-flat>
 <span>Shortcodes</span>
 <ul>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/buttons/>Buttons</a>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/columns/>Columns</a>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/details/>Details</a>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/expand/>Expand</a>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/hints/>Hints</a>
-</li>
 <li>
 <input type=checkbox id=section-7c3caa3f9736d0448c142e930fa4817c class=toggle>
 <label for=section-7c3caa3f9736d0448c142e930fa4817c class="flex justify-between">
@@ -79,36 +61,20 @@ Methodology #  Active-learning using free-software to develop:
 </ul>
 </li>
 <li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/katex/>Katex</a>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/mermaid/>Mermaid</a>
-</li>
-<li>
-<input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
-<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between">
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/p5/>P5</a>
+<input type=checkbox id=section-316bf254ad8f46bde0f17dc0171e06ba class=toggle>
+<label for=section-316bf254ad8f46bde0f17dc0171e06ba class="flex justify-between">
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/>Rendering</a>
 </label>
 <ul>
 <li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/p5/div/>Div</a>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Antialiasing/>Antialiasing</a>
 </li>
 <li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/p5/iframe/>Iframe</a>
-</li>
-</ul>
-</li>
-<li>
-<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/tabs/>Tabs</a>
+<a href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Painters-Algorithm/>Painters Algorithm</a>
 </li>
 </ul>
 </li>
 </ul>
-<ul>
-<li>
-<a href=/vc/posts/>
-Blog
-</a>
 </li>
 </ul>
 </nav>
@@ -129,131 +95,32 @@ Blog
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#visual-computing-template>Visual Computing Template</a>
+<li><a href=#visual-computing>Visual Computing</a>
 <ul>
-<li><a href=#goal>Goal</a></li>
-<li><a href=#methodology>Methodology</a></li>
-<li><a href=#grading>Grading</a></li>
-<li><a href=#outline>Outline</a></li>
-<li><a href=#hacking>Hacking</a></li>
+<li><a href=#running-hugo>Running Hugo</a></li>
 </ul>
 </li>
 </ul>
 </nav>
 </aside>
 </header>
-<article class=markdown><h1 id=visual-computing-template>
-Visual Computing Template
-<a class=anchor href=#visual-computing-template>#</a>
+<article class=markdown><h1 id=visual-computing>
+Visual Computing
+<a class=anchor href=#visual-computing>#</a>
 </h1>
-<p>Welcome to the <a href=http://www.ingenieria.unal.edu.co/dependencias/departamentos/departamento-de-ingenieria-de-sistemas-e-industrial>UN / DISI</a> <em>visual computing</em> course template site.</p>
-<h2 id=goal>
-Goal
-<a class=anchor href=#goal>#</a>
+<h2 id=running-hugo>
+Running Hugo
+<a class=anchor href=#running-hugo>#</a>
 </h2>
-<p>To study the process of creation and manipulation of a digital image of a modern visual application, using current hardware.</p>
-<h2 id=methodology>
-Methodology
-<a class=anchor href=#methodology>#</a>
-</h2>
-<p><a href=https://en.wikipedia.org/wiki/Active_learning>Active-learning</a> using <a href=https://en.wikipedia.org/wiki/Free_software>free-software</a> to develop:</p>
-<ul>
-<li><a href=https://github.com/orgs/VisualComputing/teams/presentations/repositories>Slides</a>.</li>
-<li><a href=https://github.com/VisualComputing/nub>nub</a> and <a href=https://github.com/VisualComputing/p5.tree>p5.tree</a>.</li>
-<li><a href=https://github.com/objetos/p5.quadrille.js>p5.quadrille.js</a>.</li>
-</ul>
-<h2 id=grading>
-Grading
-<a class=anchor href=#grading>#</a>
-</h2>
-<p>Workshops <a href=https://en.wikipedia.org/wiki/Edublog>blog posts</a>-like reports produced with <a href=https://gohugo.io/>gohugo</a> and <a href=https://p5js.org/>p5.js</a> and having a basic research structure:</p>
-<ul>
-<li>Problem statement</li>
-<li>Background</li>
-<li>Code (solution) & results</li>
-<li>Conclusions & future work</li>
-</ul>
-<h2 id=outline>
-Outline
-<a class=anchor href=#outline>#</a>
-</h2>
-<table>
-<thead>
-<tr>
-<th>To read</th>
-<th>Subject</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td><a href=https://github.com/VisualComputing/Introduction>Introduction</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href=https://processing.org/>Processing</a> & <a href=https://p5js.org/>p5.js</a></td>
-</tr>
-<tr>
-<td><a href=https://pages.github.com/>gh-pages</a></td>
-<td><a href=https://visualcomputing.github.io/vc/>VC Template</a></td>
-</tr>
-<tr>
-<td><a href=http://y2u.be/oYp5XuGYqqY>Do we see reality as it is?</a></td>
-<td><a href=https://github.com/VisualComputing/Cognitive>Cognitive</a></td>
-</tr>
-<tr>
-<td><a href=https://fgiesen.wordpress.com/2013/02/06/the-barycentric-conspirac/>The barycentric conspiracy</a></td>
-<td><a href=https://github.com/VisualComputing/Rendering>Rendering & Algorithm visualization</a></td>
-</tr>
-<tr>
-<td><a href=https://processing.org/tutorials/pshader/>Shaders tutorial</a></td>
-<td><a href=https://github.com/VisualComputing/FragmentShaders>Fragment Shaders</a></td>
-</tr>
-<tr>
-<td><a href=https://tfetimes.com/wp-content/uploads/2015/04/F.Dunn-I.Parberry-3D-Math-Primer-for-Graphics-and-Game-Development.pdf>3D Math primer for Graphics and Game Development &ndash; chs. 8 & 9</a>, <a href=http://www.songho.ca/opengl/gl_projectionmatrix.html>Projection matrix</a></td>
-<td><a href=https://github.com/VisualComputing/Transformations>Affine Transformations</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href=https://visualcomputing.github.io/Curves>spline</a></td>
-</tr>
-<tr>
-<td><a href=https://github.com/VisualComputing/nub>nub</a></td>
-<td><a href=https://github.com/VisualComputing/SceneGraphs>SceneGraphs</a></td>
-</tr>
-<tr>
-<td><a href=https://hal.inria.fr/hal-00789413/document>A Survey of Interaction Techniques</a></td>
-<td><a href=https://github.com/VisualComputing/Interaction>Interaction</a></td>
-</tr>
-<tr>
-<td><a href=https://processing.org/tutorials/pshader/>Shaders tutorial</a></td>
-<td><a href=https://github.com/VisualComputing/VertexShaders>Vertex Shaders</a></td>
-</tr>
-<tr>
-<td><a href=http://media.espora.org/mgoblin_media/media_entries/1633/Visualizing_Data.pdf>Visualizing Data</a>, <a href=http://networksciencebook.com/chapter/2>Network Science &ndash; ch. 2</a></td>
-<td>Data Visualization</td>
-</tr>
-</tbody>
-</table>
-<h2 id=hacking>
-Hacking
-<a class=anchor href=#hacking>#</a>
-</h2>
-<p>Install the <a href=https://gohugo.io/>gohugo</a> <a href=https://jamstack.org/generators/>static site generator</a> then:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$git clone https://github.com/VisualComputing/vc
-$cd vc
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$cd vc
 $git submodule update --init --recursive
 $hugo server -D --disableFastRender
-</code></pre></div><p>Deploy with <code>$git push</code> after redefined <code>baseURL</code> in <code>config.toml</code> which should point to your actual public remote.</p>
-<blockquote class="book-hint info">
-The <strong>vc</strong> template uses the <a href=https://github.com/alex-shpak/hugo-book>hugo-book</a> theme by default. Check the <a href=https://themes.gohugo.io/>hugo themes site</a> if you wish to add other ones.
-</blockquote>
-</article>
+</code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/8920b0580c7199b6da1b8cc0a7302bbc4457c4a6 title="Last modified by nakednous | October 21, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/4217029df367fb217437cc8fe137a5eaa8563346 title="Last modified by Andres Ardila | December 13, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>October 21, 2021</span>
+<span>December 13, 2021</span>
 </a>
 </div>
 </div>
@@ -267,13 +134,9 @@ The <strong>vc</strong> template uses the <a href=https://github.com/alex-shpak/
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#visual-computing-template>Visual Computing Template</a>
+<li><a href=#visual-computing>Visual Computing</a>
 <ul>
-<li><a href=#goal>Goal</a></li>
-<li><a href=#methodology>Methodology</a></li>
-<li><a href=#grading>Grading</a></li>
-<li><a href=#outline>Outline</a></li>
-<li><a href=#hacking>Hacking</a></li>
+<li><a href=#running-hugo>Running Hugo</a></li>
 </ul>
 </li>
 </ul>
