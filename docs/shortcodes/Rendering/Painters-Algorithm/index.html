@@ -2,21 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Painters' Algorithm #  El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador.
-El algoritmo del pintor crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.">
+<meta name=description content="Painters' Algorithm #  El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador. Este algoritmo crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Painters' Algorithm #  El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador.
-El algoritmo del pintor crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.">
+<meta property="og:description" content="Painters' Algorithm #  El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador. Este algoritmo crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/Painters-Algorithm/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T23:40:17-05:00">
+<meta property="article:modified_time" content="2021-12-13T00:57:27-05:00">
 <title>Painters Algorithm | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.28c34860ce1319bbbea43627bb50d8a8b19c7cf713904f71e353f3ba84700074.js integrity="sha256-KMNIYM4TGbu+pDYnu1DYqLGcfPcTkE9x41PzuoRwAHQ=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.822ae542d1208d3970962371a74faaef43511db18471f081d1f7c6a2b04d4e0e.js integrity="sha256-girlQtEgjTlwliNxp0+q70NRHbGEcfCB0ffGorBNTg4=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -104,6 +102,9 @@ El algoritmo del pintor crea imágenes clasificando los polígonos dentro de la 
 <li>
 <ul>
 <li><a href=#pseudocódigo>Pseudocódigo</a></li>
+<li><a href=#complejidad-temporal>Complejidad temporal</a></li>
+<li><a href=#complejidad-espacial>Complejidad espacial</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>
@@ -116,21 +117,80 @@ El algoritmo del pintor crea imágenes clasificando los polígonos dentro de la 
 Painters' Algorithm
 <a class=anchor href=#painters-algorithm>#</a>
 </h1>
-<p>El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador.</p>
-<p>El algoritmo del pintor crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.</p>
+<p>El algoritmo del pintor, también algoritmo de ordenación de la profundidad o relleno prioritario, es un algoritmo para la determinación de la superficie visible en gráficos 3D,que funciona polígono a polígono para la eliminación de superficies ocultas al punto de vista del observador. Este algoritmo crea imágenes clasificando los polígonos dentro de la imagen por su profundidad y colocando cada polígono en orden desde el objeto más lejano al más cercano.</p>
+<p>Fue propuesto inicialmente como un método básico para abordar el <em>problema de la determinación de la superficie oculta</em> por Martin Newell, Richard Newell y Tom Sancha en 1972. Se llama así porque el pintado del cuadro se hace en orden decreciente de la distancia. La distancia es desde el plano de la vista. Los polígonos a más distancia se pintan primero.</p>
+<p>Cuando el pintor hace un cuadro, primero pinta todo el lienzo con el color de fondo. Luego, se añaden los objetos más lejanos, como las montañas o los árboles. A continuación, se añaden al cuadro los objetos posteriores o de primer plano.</p>
+<center><img src=https://media.giphy.com/media/JnFjMQgSDNPV7EFcbF/giphy.gif></center>
+<p>Los objetos están dispuestos en orden creciente a la coordenada z. El renderizado se realiza en orden de la coordenada z. Los objetos más lejanos oscurecerán a los cercanos. Los píxeles de la parte trasera sobrescribirán los píxeles de los objetos más lejanos.</p>
+<p>Si los valores z de dos se superponen, podemos determinar el orden correcto a partir del valor Z como se muestra en la figura (a).</p>
+<p>Si los objetos z se superponen entre sí, como en la figura (b), este correcto orden se puede mantener cortando los objetos superpuestos.</p>
+<center><img src=https://edunextuploads.s3.amazonaws.com/1639374264845618174708.jpg></center>
 <h3 id=pseudocódigo>
 Pseudocódigo
 <a class=anchor href=#pseudoc%c3%b3digo>#</a>
 </h3>
+<p>Pasos realizados en la clasificación en profundidad</p>
+<ol>
+<li>Ordenar todos los polígonos según la coordenada z.</li>
+<li>Encontrar ambigüedades: encontrar si la coordenada z se superpone, dividir el polígono si es necesario.</li>
+<li>Convertir cada polígono en orden creciente de la coordenada z.</li>
+</ol>
 <pre tabindex=0><code>sort polygons by depth 
     for each polygon p:
         for each pixel that p covers:
             paint p.color on pixel
-</code></pre><p>Primero se ordenan los polígonos por profundidad. Luego para cada pixel cubierto por el polígono, se pinta el color del polígono en el pixel.</p>
+</code></pre><p>Se aplica la prueba:</p>
+<ol>
+<li>¿A está detrás de B y no se solapa con él en la dimensión de Z como se muestra en la figura (a)?</li>
+<li>Si A está detrás de B en z y no se solapa en x o y como se muestra en la fig (b)</li>
+<li>Si A está detrás de B en Z y totalmente fuera de B con respecto al plano de la vista como se muestra en la fig (c)</li>
+<li>Si A está detrás de B en Z y B está totalmente dentro de A con respecto al plano de visión, como se muestra en la figura (d)</li>
+</ol>
+<center><img src=https://edunextuploads.s3.amazonaws.com/163937429751712709052.jpg></center>
+<h3 id=complejidad-temporal>
+Complejidad temporal
+<a class=anchor href=#complejidad-temporal>#</a>
+</h3>
+<p>La complejidad temporal depende en gran medida del algoritmo de ordenamiento utilizado para ordenar los polígonos. Suponiendo el uso del algoritmo de ordenamiento más óptimo, el algoritmo de pintor tiene una complejidad en el peor de los casos:
+<link rel=stylesheet href=/vc/katex/katex.min.css>
+<script defer src=/vc/katex/katex.min.js></script>
+<script defer src=/vc/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[ \mathcal{O}(n\log{}n + n*m) \]
+</span>
+donde n es el número de polígonos y m es el número de píxeles a rellenar.</p>
+<h3 id=complejidad-espacial>
+Complejidad espacial
+<a class=anchor href=#complejidad-espacial>#</a>
+</h3>
+<p>El peor caso de complejidad espacial del algoritmo del pintor es <span>
+\[ \mathcal{O}(n+m) \]
+</span>
+donde n es el número de polígonos y m es el número de píxeles a rellenar.</p>
+<table>
+<thead>
+<tr>
+<th>Ventajas</th>
+<th>Limitaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul><li><strong>Estructura gráfica básica:</strong> El algoritmo no es tan complejo en estructura. Esta simplicidad lo hace útil en escenarios de gráficos de poca dificultad.</li><li><strong>Eficiencia de la memoria:</strong> El algoritmo prioriza el uso eficiente de la memoria, pero a expensas de una mayor procesamiento, ya que se deben renderizar todas las partes de todas las imágenes.</li></ul></td>
+<td><ul><li><strong>Superposición cíclica:</strong> En el caso de superposición cíclica, es imposible determinar qué polígono está por encima de los demás. En este caso, los polígonos se deben cortar para permitir la ordenación.</li><li><strong>Polígonos penetrantes:</strong> La perforación de polígonos surge cuando un polígono se cruza con otro. Este problema se puede resolver cortando los polígonos.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id=referencias>
+Referencias
+<a class=anchor href=#referencias>#</a>
+</h3>
+<p>Computer Graphics Painter’s Algorithm - javatpoint. (s. f.). Www.Javatpoint.Com Recuperado 12 de diciembre de 2021, de <a href=https://www.javatpoint.com/computer-graphics-painter-algorithm>https://www.javatpoint.com/computer-graphics-painter-algorithm</a></p>
+<p>Wikipedia contributors. (2021, 23 noviembre). Painter’s algorithm. Wikipedia. Recuperado 12 de diciembre de 2021, de <a href=https://en.wikipedia.org/wiki/Painter%27s_algorithm>https://en.wikipedia.org/wiki/Painter%27s_algorithm</a></p>
+<p>GeeksforGeeks. (2021, 21 noviembre). Painter’s Algorithm in Computer Graphics. Recuperado 12 de diciembre de 2021, de <a href=https://www.geeksforgeeks.org/painters-algorithm-in-computer-graphics/>https://www.geeksforgeeks.org/painters-algorithm-in-computer-graphics/</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/4217029df367fb217437cc8fe137a5eaa8563346 title="Last modified by Andres Ardila | December 13, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/VisualComputing-vc20212/vc/commit/9c374fb980d63e6bfc5457aecd2ba74f504972b7 title="Last modified by Andres Ardila | December 13, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>December 13, 2021</span>
 </a>
@@ -151,6 +211,9 @@ Pseudocódigo
 <li>
 <ul>
 <li><a href=#pseudocódigo>Pseudocódigo</a></li>
+<li><a href=#complejidad-temporal>Complejidad temporal</a></li>
+<li><a href=#complejidad-espacial>Complejidad espacial</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>
