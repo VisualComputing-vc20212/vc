@@ -1,0 +1,7 @@
+---
+bookCollapseSection: true
+---
+
+# Rendering
+
+{{<section>}}
