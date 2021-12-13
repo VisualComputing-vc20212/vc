@@ -1,5 +1,7 @@
-# Rasterisation
-### 
+# Rasterización
+
+### Explicación
+Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve...
 
 {{< p5-global-iframe id="breath" width="715" height="725" >}}
 
@@ -39,5 +41,3 @@ function draw() {
 {{< /p5-global-iframe >}}
 
 
-### Explicación
-Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. 

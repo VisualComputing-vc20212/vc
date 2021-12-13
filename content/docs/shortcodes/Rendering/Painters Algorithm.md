@@ -54,7 +54,7 @@ El peor caso de complejidad espacial del algoritmo del pintor es {{< katex displ
 
 ### Referencias
 
-Computer Graphics Painter’s Algorithm - javatpoint. (s. f.). Www.Javatpoint.Com Recuperado 12 de diciembre de 2021, de https://www.javatpoint.com/computer-graphics-painter-algorithm 
+Computer Graphics Painter’s Algorithm - javatpoint. (s. f.). Www.Javatpoint.Com. Recuperado 12 de diciembre de 2021, de https://www.javatpoint.com/computer-graphics-painter-algorithm 
 
 Wikipedia contributors. (2021, 23 noviembre). Painter’s algorithm. Wikipedia. Recuperado 12 de diciembre de 2021, de https://en.wikipedia.org/wiki/Painter%27s_algorithm 
 
