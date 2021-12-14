@@ -13,7 +13,7 @@
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.6abc528c91a7184f8549307ec6296de8db6532e6b5269dab2c8cbcfcd14ba38c.js integrity="sha256-arxSjJGnGE+FSTB+xilt6NtlMua1Jp2rLIy8/NFLo4w=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.b55400aca10e313f7d60a4e6d8d5faccecac9e68740868f3f25c5401e332895b.js integrity="sha256-tVQArKEOMT99YKTm2NX6zOysnmh0CGjz8lxUAeMyiVs=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://visualcomputing-vc20212.github.io/vc/docs/shortcodes/Rendering/index.xml title="Visual Computing">
 </head>
 <body dir=ltr>
@@ -126,8 +126,7 @@ Painters' Algorithm # El algoritmo del pintor, también algoritmo de ordenación
 <a href=/vc/docs/shortcodes/Rendering/Rasterizaci%C3%B3n/>Rasterización</a>
 </dt>
 <dd class=markdown-inner>
-Rasterización # Explicación # Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve&mldr;
-let img; function preload(){ img = loadImage('https://pbs.twimg.com/profile_images/1317243402396831744/vOz-5Cju_400x400.jpg'); } function setup() { BG = color("#f1f1f1"); FG = color("#111111"); createCanvas(700, 700); img.resize(700, 700); } function draw() { background(BG); fill(FG); noStroke(); let ratio = float(height)/float(width); let tilesX = map(mouseX, 0, width, 10, 100); let tilesY = ratio * tilesX; let tileSize = width / tilesX; for (let y = 0; y &lt; img.
+Rasterización # Explicación # Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. Esto se asocia mucho a las técnicas de antialiasing, esta técnica se trata en que basado si un pixel se encuentra dentro de cierta area, basado en el brillo de este, se pinta o no el pixel, la técnica consta en que cada vez se van haciendo mas y mas subparticiones dentro de los pixeles para así dejar una imagen clara y lisa.
 </dd>
 </dl>
 </article>
