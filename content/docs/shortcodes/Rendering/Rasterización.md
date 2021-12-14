@@ -1,9 +1,9 @@
 # Rasterización
 
 ### Explicación
-Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. Esto se asocia mucho a las técnicas de **antialiasing**, esta técnica se trata en que basado si un pixel se encuentra dentro de cierta area, basado en el brillo de este, se pinta o no el pixel, la técnica consta en que cada vez se van haciendo mas y mas subparticiones dentro de los pixeles para así dejar una imagen clara y lisa.
+Este algoritmo de rasterización utiliza el brillo de cada pixel para asignar el tamaño de cada celda. Esto se asocia mucho a las técnicas de **antialiasing**, esta técnica se trata en que si un pixel se encuentra dentro de cierta area, basado en el brillo de este, se pinta o no el pixel, la técnica consta en que cada vez se van haciendo más y más subparticiones dentro de los pixeles para así dejar una imagen clara y lisa.
 
-La definición de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve...
+La definición de las celdas de la rasterización se puede cambiar moviendo el mouse de horizontalmente. Veamos si sirve...
 
 {{< p5-global-iframe id="breath" width="715" height="725" >}}
 
