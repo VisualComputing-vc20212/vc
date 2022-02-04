@@ -1,6 +1,6 @@
 let hdurl;
 let img;
-const url = "https://images-api.nasa.gov/search?q=jupiter&media_type=image";
+const url = "https://images-api.nasa.gov/search?q=apollo&media_type=image";
 var img_url;
 
 
@@ -28,6 +28,7 @@ async function randomImage(){
 
 async function preload(){          
     img = loadImage(await randomImage());
+    console.log(img);
     
 }
 
