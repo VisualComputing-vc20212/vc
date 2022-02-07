@@ -90,7 +90,7 @@ function sleep(millisecondsDuration)
 }
 
 function setup(){
-    createCanvas(1000,1000);
+    createCanvas(1000,1000, WEBGL);
    
    w = (messi.width/scaleFactor)*3;
    h = (messi.height/scaleFactor)*3;
