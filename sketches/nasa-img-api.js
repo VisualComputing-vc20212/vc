@@ -35,7 +35,7 @@ async function preload(){
 
 async function setup() {
     //noLoop();
-    createCanvas(1000,1000);
+    createCanvas(625,625);
     input = createInput();
     input.position(10,10);
     button = createButton('Buscar');
