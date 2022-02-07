@@ -90,23 +90,17 @@ function sleep(millisecondsDuration)
 }
 
 function setup(){
-    createCanvas(1000,1000, WEBGL);
+    createCanvas(1500,1500);
    
    w = (messi.width/scaleFactor)*3;
    h = (messi.height/scaleFactor)*3;
   
   smaller.resize(w,h);
-    
-    //console.log(imagesNasa[1].pixels.length);
-  
-  
-    //smaller.resize(w,h);
-
 }
 
 async function draw(){
     //console.log(imagesNasa[1].pixels.length);
-    await sleep(1000);
+    await sleep(1500);
     //image(mosaicImages[0],0,0);
     //image(messi,0,0);
     //image(smaller,0,0);
