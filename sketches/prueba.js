@@ -6,11 +6,12 @@ let imagesNasa=[]
 
 let scaleFactor=8;
 let w,h;
-
+let w1,h1;
 let hdurl;
 let img;
 const url = "https://images-api.nasa.gov/search?q=apollo%2011&media_type=image";
 var img_url;
+let show_img = false;
 
 
 function getRandomInt(min, max) {
@@ -94,8 +95,15 @@ function setup(){
    
    w = (messi.width/scaleFactor)*3;
    h = (messi.height/scaleFactor)*3;
-  
+   w1 = messi.width;
+   h1 = messi.height;
   smaller.resize(w,h);
+}
+
+function mousePressed() {
+  console.log("mousePressed");
+  messi.resize(w1*3,h1*3);
+  show_img = !show_img;
 }
 
 async function draw(){
@@ -104,8 +112,8 @@ async function draw(){
     //image(mosaicImages[0],0,0);
     //image(messi,0,0);
     //image(smaller,0,0);
-  
-  
+    
+    
     
      smaller.loadPixels();
      for( let i=0; i<w; i++ ){
@@ -117,6 +125,10 @@ async function draw(){
             image(mosaicImages[imageIndex], i*scaleFactor, j*scaleFactor, scaleFactor, scaleFactor);
            }
      }
+
+    if(show_img){
+      image(messi,0,0);
+    }
   
-     noLoop();
+     //noLoop();
 }
